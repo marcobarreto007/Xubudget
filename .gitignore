@@ -1,0 +1,7 @@
+tools/_quarantine/
+data/exports/
+.env
+*.log
+.dart_tool/
+build/
+.vscode/
