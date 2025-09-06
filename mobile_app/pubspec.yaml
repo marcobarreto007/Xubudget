@@ -1,10 +1,8 @@
-# WHY: This file defines the Flutter project's dependencies and metadata,
-# as required by the issue. It includes packages for state management (Riverpod),
-# local ML services (ML Kit, Speech to Text), database, and utilities.
+# WHY: deps do app + gerador de ícone do launcher
 
 name: mobile_app
 description: "A new Flutter project for Xubudget."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -15,22 +13,50 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Core dependencies as per issue spec
-  flutter_riverpod: ^2.5.1
-  google_mlkit_text_recognition: ^0.11.0
-  image_picker: ^1.0.7
-  speech_to_text: ^6.6.0
-  sqflite: ^2.3.2
-  path_provider: ^2.1.2
-  intl: ^0.19.0
+  # Core
+  flutter_riverpod: 2.5.1
+  google_mlkit_text_recognition: 0.11.0
+  image_picker: 1.0.7
 
-  # Default Flutter icons
-  cupertino_icons: ^1.0.6
+  # Storage/DB
+  sqflite_sqlcipher: 3.3.0
+  flutter_secure_storage: 8.1.0
+  path: 1.9.1
+  path_provider: 2.1.2
+
+  # Util
+  intl: 0.19.0
+  provider: 6.0.5
+  http: 1.1.0
+
+  # Ícones padrão Flutter
+  cupertino_icons: 1.0.6
+  flutter_gemma: ^0.0.4
+  mobile_scanner: ^7.0.1
+  logger: ^2.6.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: 3.0.0
+  flutter_launcher_icons: 0.13.1   # <- ADICIONADO
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/icon/
+    - assets/ml/
+
+# Config do gerador de ícone (launcher)
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+    background_color: "#121212"
+    theme_color: "#6C4DD6"
+
