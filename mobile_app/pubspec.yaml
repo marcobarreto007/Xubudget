@@ -1,0 +1,36 @@
+# WHY: This file defines the Flutter project's dependencies and metadata,
+# as required by the issue. It includes packages for state management (Riverpod),
+# local ML services (ML Kit, Speech to Text), database, and utilities.
+
+name: mobile_app
+description: "A new Flutter project for Xubudget."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core dependencies as per issue spec
+  flutter_riverpod: ^2.5.1
+  google_mlkit_text_recognition: ^0.11.0
+  image_picker: ^1.0.7
+  speech_to_text: ^6.6.0
+  sqflite: ^2.3.2
+  path_provider: ^2.1.2
+  intl: ^0.19.0
+
+  # Default Flutter icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
