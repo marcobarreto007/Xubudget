@@ -1,0 +1,54 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.mobile_app"
+    compileSdk = 34
+    ndkVersion = "25.1.8937393"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.mobile_app"
+        minSdk = 21  // Optimized for better memory usage
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0.0"
+        
+        // Memory optimization settings for 2GB devices
+        multiDexEnabled = false
+        resConfigs = ["en", "pt"]  // Only necessary languages
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled = false
+            proguardFiles = getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled = true  // Enable code shrinking for production
+            proguardFiles = getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig = signingConfigs.debug
+        }
+    }
+    
+    // Memory optimization: reduce APK size and memory usage
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        pickFirst '**/libjsc.so'
+    }
+}
+
+flutter {
+    source = "../.."
+}
