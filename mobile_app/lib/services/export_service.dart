@@ -1,9 +1,9 @@
 // WHY: Export service for CSV/XLSX file generation to data/exports/ directory
 import 'dart:io';
-import 'dart:convert';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:intl/intl.dart';
+import 'package:csv/csv.dart';
 import '../models/expense.dart';
 
 class ExportService {
@@ -34,27 +34,30 @@ class ExportService {
     final fileName = 'expenses_$timestamp.csv';
     final filePath = path.join(exportDir.path, fileName);
     
-    final file = File(filePath);
-    final sink = file.openWrite();
+    // Prepare data for CSV
+    List<List<dynamic>> csvData = [
+      ['ID', 'Description', 'Amount', 'Category', 'Date', 'Source', 'Created At']
+    ];
     
-    // Write CSV header
-    sink.writeln('ID,Description,Amount,Category,Date,Source,Created At');
-    
-    // Write data rows
     for (final expense in expenses) {
-      final row = [
+      csvData.add([
         expense.id?.toString() ?? '',
-        _escapeCsvField(expense.description),
+        expense.description,
         expense.amount.toString(),
-        _escapeCsvField(expense.category),
+        expense.category,
         DateFormat('yyyy-MM-dd').format(expense.date),
         expense.source.name,
         DateFormat('yyyy-MM-dd HH:mm:ss').format(expense.createdAt),
-      ].join(',');
-      sink.writeln(row);
+      ]);
     }
     
-    await sink.close();
+    // Convert to CSV string
+    String csvString = const ListToCsvConverter().convert(csvData);
+    
+    // Write to file
+    final file = File(filePath);
+    await file.writeAsString(csvString);
+    
     return filePath;
   }
 
@@ -94,12 +97,5 @@ class ExportService {
   Future<String> getExportsDirectoryPath() async {
     final exportDir = await _ensureExportDirectory();
     return exportDir.path;
-  }
-
-  String _escapeCsvField(String field) {
-    if (field.contains(',') || field.contains('"') || field.contains('\n')) {
-      return '"${field.replaceAll('"', '""')}"';
-    }
-    return field;
   }
 }
