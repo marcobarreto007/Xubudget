@@ -9,7 +9,6 @@ import 'dart:io';
 import '../services/ocr_service.dart';
 import '../services/expense_parser.dart';
 import '../models/expense.dart';
-import '../db/database_service.dart';
 import '../providers/expense_provider.dart';
 
 class CaptureReceiptPage extends StatefulWidget {
@@ -133,9 +132,8 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
         createdAt: DateTime.now(),
       );
 
-      await DatabaseService.instance.create(newExpense);
+      await Provider.of<ExpenseProvider>(context, listen: false).addExpense(newExpense);
       if (mounted) {
-        Provider.of<ExpenseProvider>(context, listen: false).fetchExpenses();
         Navigator.pop(context);
       }
     }
