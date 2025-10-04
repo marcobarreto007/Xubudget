@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/xubudget/static/css/main.1d313f1a.css",
-    "main.js": "/xubudget/static/js/main.db8cf403.js",
-    "static/js/453.040a68b8.chunk.js": "/xubudget/static/js/453.040a68b8.chunk.js",
+    "main.css": "/xubudget/static/css/main.1dfccf28.css",
+    "main.js": "/xubudget/static/js/main.d921990b.js",
+    "static/js/453.e6b62ffe.chunk.js": "/xubudget/static/js/453.e6b62ffe.chunk.js",
     "index.html": "/xubudget/index.html",
-    "main.1d313f1a.css.map": "/xubudget/static/css/main.1d313f1a.css.map",
-    "main.db8cf403.js.map": "/xubudget/static/js/main.db8cf403.js.map",
-    "453.040a68b8.chunk.js.map": "/xubudget/static/js/453.040a68b8.chunk.js.map"
+    "main.1dfccf28.css.map": "/xubudget/static/css/main.1dfccf28.css.map",
+    "main.d921990b.js.map": "/xubudget/static/js/main.d921990b.js.map",
+    "453.e6b62ffe.chunk.js.map": "/xubudget/static/js/453.e6b62ffe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d313f1a.css",
-    "static/js/main.db8cf403.js"
+    "static/css/main.1dfccf28.css",
+    "static/js/main.d921990b.js"
   ]
 }
