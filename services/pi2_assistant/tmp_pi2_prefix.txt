@@ -1,0 +1,111 @@
+﻿#!/usr/bin/env python3
+        )
+        # Early route for questions/hypotheticals
+        _ml = (message or "").lower()
+        if ("?" in (message or "")) or ("se eu" in _ml) or ("e bom" in _ml) or ("é bom" in _ml) or ("vale a pena" in _ml) or ("devo" in _ml) or ("posso" in _ml):
+            state = load_user_state(user_id)
+            cat_guess = guess_category(message, None)
+            amt_match = re.search(r'(\d[\d\.,]*)', message or "")
+            rough = float(amt_match.group(1).replace(',', '.')) if amt_match else None
+            advice = generate_advice_reply(message, state, rough, cat_guess)
+            if not advice:
+                advice = gen_reply(message, state, user_id) or "Posso avaliar seus orçamentos e sugerir um plano."
+            return {"reply": advice, "state": state}
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+
+class MemoryItem(BaseModel):
+    user_id: str = "default"
+    text: str
+    tags: Optional[List[str]] = None
+
+class RagDoc(BaseModel):
+    title: str
+    text: str
+    meta: Optional[Dict[str, Any]] = None
+@app.get("/api/dashboard_summary")
+def api_dashboard_summary2(user_id: str = "default"):
+    state = load_user_state(user_id, apply_overrides=False)
+    total_budget = sum((i.budget or 0.0) for i in state.icons)
+    total_spent = sum((i.spent or 0.0) for i in state.icons)
+    available = total_budget - total_spent
+    cats = []
+    for i in state.icons:
+        color = '#48bb78'
+        if (i.budget or 0)>0 and (i.spent or 0) > (i.budget or 0):
+            color = '#f56565'
+        elif (i.budget or 0)>0 and (i.spent or 0) > 0.8*(i.budget or 0):
+            color = '#ed8936'
+        cats.append({
+            'id': i.id,
+            'name': i.name,
+            'icon': i.emoji or '💸',
+            'spent': float(i.spent or 0.0),
+            'budget': float(i.budget or 0.0),
+            'color': color,
+            'trend': 0
+        })
+    cats_sorted = sorted(cats, key=lambda x: x['spent'], reverse=True)
+    primary = cats_sorted[:4]
+    secondary = cats_sorted[4:16]
+    insights = []
+    for c in primary:
+        if c['budget']>0 and c['spent'] > c['budget']:
+            insights.append({'type':'warning','message': f"{c['name']} passou do limite.", 'icon':'AlertCircle'})
+        elif c['budget']>0 and c['spent'] <= 0.85*c['budget']:
+            insights.append({'type':'success','message': f"{c['name']} sob controle este mês!", 'icon':'CheckCircle2'})
+    return {
+        'user_name': user_id,
+        'available_amount': float(available),
+        'total_budget': float(total_budget),
+        'total_spent': float(total_spent),
+        'primary_categories': primary,
+        'secondary_categories': secondary,
+        'insights': insights[:3],
+    }
+"""
+Xubudget PI2 Server - Sistema Completo de Budgets Subcategorizados
+"""
+
+import json
+import os
+import threading
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+from collections import defaultdict
+
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field
+import uvicorn
+import requests
+import unicodedata
+from rag_mem import RagIndex, MemoryStore
+from xu_guard import is_recent_duplicate
+
+# ConfiguraÃ§Ãµes
+HOST = "127.0.0.1"
+PORT = 5002
+STATE_DIR = Path(__file__).parent / "states"
+STATE_DIR.mkdir(exist_ok=True)
+
+# Lock global para operaÃ§Ãµes de arquivo
+_db_lock = threading.Lock()
+
+print("DEBUG: Iniciando servidor...")
+
+# --- FastAPI App ---
+app = FastAPI(
+    title="Xubudget PI2 API",
+    description="Sistema completo de controle financeiro com budgets subcategorizados",
+    version="2.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000","http://127.0.0.1:3000"],
+    allow_credential

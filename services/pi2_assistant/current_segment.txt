@@ -1,0 +1,17 @@
+def _build_daily_briefing(summary: Dict[str, Any]) -> str:
+    top_categories = summary.get("primary_categories", [])
+    if top_categories:
+        top = top_categories[0]
+        spent = top.get("spent", 0.0)
+        budget = top.get("budget", 0.0) or 1.0
+        pct = min(100.0, (spent / budget) * 100 if budget else 0.0)
+        return (
+            f"Maior gasto até agora: {top.get('name')} com {spent:.2f}. "
+            f"Você usou {pct:.0f}% do orçamento desta categoria."
+        )
+    if summary.get("total_spent", 0.0) <= 0:
+        return "Nenhuma despesa registrada este mês. Bom trabalho em manter o orçamento!"
+    return "Continue acompanhando suas despesas para manter o orçamento sob controle."
+
+
+

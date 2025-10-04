@@ -1,0 +1,709 @@
+{
+  "user_id": "default",
+  "current_month": "2025-09",
+  "icons": {
+    "supermercado": {
+      "id": "supermercado",
+      "name": "Supermercado",
+      "icon": "🛒",
+      "budget": 400.0,
+      "spent": 727.0,
+      "color": "#48bb78"
+    },
+    "fast_food": {
+      "id": "fast_food",
+      "name": "Fast Food",
+      "icon": "🍔",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "cafe": {
+      "id": "cafe",
+      "name": "CafÃ©",
+      "icon": "☕",
+      "budget": 60.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "bar": {
+      "id": "bar",
+      "name": "Bar",
+      "icon": "🍺",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "restaurante": {
+      "id": "restaurante",
+      "name": "Restaurante",
+      "icon": "🍽️",
+      "budget": 200.0,
+      "spent": 37.9,
+      "color": "#48bb78"
+    },
+    "combustivel": {
+      "id": "combustivel",
+      "name": "CombustÃ­vel",
+      "icon": "⛽",
+      "budget": 300.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "metro": {
+      "id": "metro",
+      "name": "Metro",
+      "icon": "🚇",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "uber": {
+      "id": "uber",
+      "name": "Uber",
+      "icon": "🚕",
+      "budget": 120.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "mecanico": {
+      "id": "mecanico",
+      "name": "MecÃ¢nico",
+      "icon": "🛒",
+      "budget": 150.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "parking": {
+      "id": "parking",
+      "name": "Parking",
+      "icon": "🛒",
+      "budget": 60.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "aluguel": {
+      "id": "aluguel",
+      "name": "Aluguel",
+      "icon": "🛒",
+      "budget": 1200.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "luz": {
+      "id": "luz",
+      "name": "Luz",
+      "icon": "🛒",
+      "budget": 120.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "agua": {
+      "id": "agua",
+      "name": "Ãgua",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "internet": {
+      "id": "internet",
+      "name": "Internet",
+      "icon": "🛒",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "casa": {
+      "id": "casa",
+      "name": "Casa",
+      "icon": "🏠",
+      "budget": 60.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "medico": {
+      "id": "medico",
+      "name": "MÃ©dico",
+      "icon": "🛒",
+      "budget": 200.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "remedio": {
+      "id": "remedio",
+      "name": "RemÃ©dio",
+      "icon": "🛒",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "dentista": {
+      "id": "dentista",
+      "name": "Dentista",
+      "icon": "🛒",
+      "budget": 150.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "otica": {
+      "id": "otica",
+      "name": "Ã“tica",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "academia": {
+      "id": "academia",
+      "name": "Academia",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "cinema": {
+      "id": "cinema",
+      "name": "Cinema",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "netflix": {
+      "id": "netflix",
+      "name": "Netflix",
+      "icon": "🛒",
+      "budget": 50.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "games": {
+      "id": "games",
+      "name": "Games",
+      "icon": "🛒",
+      "budget": 40.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "viagem": {
+      "id": "viagem",
+      "name": "Viagem",
+      "icon": "🛒",
+      "budget": 300.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "livros": {
+      "id": "livros",
+      "name": "Livros",
+      "icon": "🛒",
+      "budget": 60.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "roupas": {
+      "id": "roupas",
+      "name": "Roupas",
+      "icon": "🛒",
+      "budget": 150.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "sapatos": {
+      "id": "sapatos",
+      "name": "Sapatos",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "tech": {
+      "id": "tech",
+      "name": "Tech",
+      "icon": "🛒",
+      "budget": 200.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "presentes": {
+      "id": "presentes",
+      "name": "Presentes",
+      "icon": "🛒",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "compras": {
+      "id": "compras",
+      "name": "Compras",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "cabelo": {
+      "id": "cabelo",
+      "name": "Cabelo",
+      "icon": "🛒",
+      "budget": 60.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "lavanderia": {
+      "id": "lavanderia",
+      "name": "Lavanderia",
+      "icon": "🛒",
+      "budget": 40.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "reparos": {
+      "id": "reparos",
+      "name": "Reparos",
+      "icon": "🛒",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "documentos": {
+      "id": "documentos",
+      "name": "Documentos",
+      "icon": "🛒",
+      "budget": 50.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "trabalho": {
+      "id": "trabalho",
+      "name": "Trabalho",
+      "icon": "🛒",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "cartao": {
+      "id": "cartao",
+      "name": "CartÃ£o",
+      "icon": "🛒",
+      "budget": 200.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "emprestimo": {
+      "id": "emprestimo",
+      "name": "EmprÃ©stimo",
+      "icon": "🛒",
+      "budget": 300.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "invest": {
+      "id": "invest",
+      "name": "Invest",
+      "icon": "🛒",
+      "budget": 400.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "reserva": {
+      "id": "reserva",
+      "name": "Reserva",
+      "icon": "🛒",
+      "budget": 200.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "seguros": {
+      "id": "seguros",
+      "name": "Seguros",
+      "icon": "🛒",
+      "budget": 150.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "filhos": {
+      "id": "filhos",
+      "name": "Filhos",
+      "icon": "🧒",
+      "budget": 300.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "pet": {
+      "id": "pet",
+      "name": "Pet",
+      "icon": "🐾",
+      "budget": 80.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "pais": {
+      "id": "pais",
+      "name": "Pais",
+      "icon": "👨‍👩‍👧",
+      "budget": 200.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "festas": {
+      "id": "festas",
+      "name": "Festas",
+      "icon": "🎉",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "creche": {
+      "id": "creche",
+      "name": "Creche",
+      "icon": "🧸",
+      "budget": 400.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "imprevistos": {
+      "id": "imprevistos",
+      "name": "Imprevistos",
+      "icon": "⚠️",
+      "budget": 150.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "jogos": {
+      "id": "jogos",
+      "name": "Jogos",
+      "icon": "🎲",
+      "budget": 50.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "assinatura": {
+      "id": "assinatura",
+      "name": "Assinatura",
+      "icon": "🧾",
+      "budget": 30.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "vicios": {
+      "id": "vicios",
+      "name": "VÃ­cios",
+      "icon": "🚬",
+      "budget": 60.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    },
+    "outros": {
+      "id": "outros",
+      "name": "Outros",
+      "icon": "🔹",
+      "budget": 100.0,
+      "spent": 0.0,
+      "color": "#48bb78"
+    }
+  },
+  "expenses": [
+    {
+      "id": 1,
+      "amount": 25.0,
+      "description": "gastei 25 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T21:17:50.941207",
+      "user_id": "default"
+    },
+    {
+      "id": 2,
+      "amount": 37.9,
+      "description": "Restaurante Sushi",
+      "category": "restaurante",
+      "timestamp": "2025-09-24T21:29:12.549678",
+      "user_id": "default"
+    },
+    {
+      "id": 3,
+      "amount": 120.0,
+      "description": "Gastei 120 na farmácia",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T22:03:41.775141",
+      "user_id": "default"
+    },
+    {
+      "id": 4,
+      "amount": 120.0,
+      "description": "Gastei 120 na farmácia",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T22:03:49.045427",
+      "user_id": "default"
+    },
+    {
+      "id": 5,
+      "amount": 120.0,
+      "description": "Gastei 120 na farmácia",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T23:36:33.517167",
+      "user_id": "default"
+    },
+    {
+      "id": 6,
+      "amount": 120.0,
+      "description": "Gastei 120 na farmácia",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T23:36:35.514755",
+      "user_id": "default"
+    },
+    {
+      "id": 7,
+      "amount": 20.0,
+      "description": "Gastei 20 no mercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-26T02:59:01.389199",
+      "user_id": "default"
+    },
+    {
+      "id": 8,
+      "amount": 12.0,
+      "description": "I spent 12 on coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T19:50:01.718037",
+      "user_id": "default"
+    },
+    {
+      "id": 9,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:07:34.336992",
+      "user_id": "default"
+    },
+    {
+      "id": 10,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:08:08.006430",
+      "user_id": "default"
+    },
+    {
+      "id": 11,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:10:37.697056",
+      "user_id": "default"
+    },
+    {
+      "id": 12,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:11:23.633954",
+      "user_id": "default"
+    },
+    {
+      "id": 13,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:12:07.873294",
+      "user_id": "default"
+    },
+    {
+      "id": 14,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:13:46.460114",
+      "user_id": "default"
+    },
+    {
+      "id": 15,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:16:33.866946",
+      "user_id": "default"
+    },
+    {
+      "id": 16,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:18:52.244903",
+      "user_id": "default"
+    },
+    {
+      "id": 17,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:20:25.433471",
+      "user_id": "default"
+    },
+    {
+      "id": 18,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T20:22:53.594975",
+      "user_id": "default"
+    },
+    {
+      "id": 19,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:09:31.553298",
+      "user_id": "default"
+    },
+    {
+      "id": 20,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:10:10.606178",
+      "user_id": "default"
+    },
+    {
+      "id": 21,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:10:35.534093",
+      "user_id": "default"
+    },
+    {
+      "id": 22,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:12:40.966651",
+      "user_id": "default"
+    },
+    {
+      "id": 23,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:14:09.073704",
+      "user_id": "default"
+    },
+    {
+      "id": 24,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:18:10.055868",
+      "user_id": "default"
+    },
+    {
+      "id": 25,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:18:31.106258",
+      "user_id": "default"
+    },
+    {
+      "id": 26,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:21:22.699277",
+      "user_id": "default"
+    },
+    {
+      "id": 27,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:21:57.351597",
+      "user_id": "default"
+    },
+    {
+      "id": 28,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:25:16.621473",
+      "user_id": "default"
+    },
+    {
+      "id": 29,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:26:02.843430",
+      "user_id": "default"
+    },
+    {
+      "id": 30,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:40:37.376744",
+      "user_id": "default"
+    },
+    {
+      "id": 31,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:45:28.647830",
+      "user_id": "default"
+    },
+    {
+      "id": 32,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:46:06.938047",
+      "user_id": "default"
+    },
+    {
+      "id": 33,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T22:51:28.419295",
+      "user_id": "default"
+    },
+    {
+      "id": 34,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T23:07:02.396789",
+      "user_id": "default"
+    },
+    {
+      "id": 35,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T23:08:51.745076",
+      "user_id": "default"
+    },
+    {
+      "id": 36,
+      "amount": 5.0,
+      "description": "spent 5 on starbucks coffee",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T23:10:48.887720",
+      "user_id": "default"
+    },
+    {
+      "id": 37,
+      "amount": 50.0,
+      "description": "Gastei 50 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-27T23:31:40.979654",
+      "user_id": "default"
+    }
+  ],
+  "incomes": [],
+  "settings": {
+    "budget_mode": "manual"
+  },
+  "total_income": 0.0
+}

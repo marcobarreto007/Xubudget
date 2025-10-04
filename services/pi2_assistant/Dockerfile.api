@@ -1,0 +1,25 @@
+# === Dockerfile.api ===
+# REM Define a imagem Docker para o backend FastAPI.
+
+FROM python:3.11-slim
+
+# Instalar ferramentas de diagnóstico
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# REM Copia o arquivo de dependencias e instala
+COPY ./requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# REM Copia todo o codigo da aplicacao (o contexto agora eh o proprio diretorio do servico)
+COPY . .
+
+# REM Define o caminho do DB via variavel de ambiente
+ENV XUB_DB_PATH=/app/db/xubudget.db
+
+# REM Expõe a porta que o Uvicorn vai usar
+EXPOSE 8000
+
+# REM Comando para iniciar a aplicacao com o backend completo (pi2_server)
+CMD ["uvicorn", "pi2_server:app", "--host", "0.0.0.0", "--port", "8000"]

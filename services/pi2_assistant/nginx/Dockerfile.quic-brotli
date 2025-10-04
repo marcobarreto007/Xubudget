@@ -1,0 +1,61 @@
+# Multi-stage build of Nginx with HTTP/3 (QUIC) and ngx_brotli
+
+ARG NGINX_VERSION=1.27.2
+ARG OPENSSL_QUIC_REF=OpenSSL_1_1_1w+quic
+
+FROM debian:bookworm as builder
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y \
+    build-essential git curl ca-certificates \
+    zlib1g-dev libpcre2-dev libxslt1-dev libgd-dev \
+    pkg-config perl && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /tmp/build
+
+# Fetch sources: OpenSSL (QUIC), ngx_brotli (with submodules), and Nginx
+RUN git clone --depth 1 -b ${OPENSSL_QUIC_REF} https://github.com/quictls/openssl.git openssl-quic && \
+    git clone --depth 1 --recursive https://github.com/google/ngx_brotli.git && \
+    curl -fsSL http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz -o nginx.tar.gz && \
+    tar xzf nginx.tar.gz && \
+    rm nginx.tar.gz
+
+WORKDIR /tmp/build/nginx-${NGINX_VERSION}
+
+RUN ./configure \
+    --prefix=/etc/nginx \
+    --sbin-path=/usr/sbin/nginx \
+    --modules-path=/usr/lib/nginx/modules \
+    --conf-path=/etc/nginx/nginx.conf \
+    --http-log-path=/var/log/nginx/access.log \
+    --error-log-path=/var/log/nginx/error.log \
+    --pid-path=/var/run/nginx.pid \
+    --lock-path=/var/run/nginx.lock \
+    --with-http_ssl_module \
+    --with-http_v2_module \
+    --with-http_v3_module \
+    --with-stream \
+    --with-threads \
+    --with-file-aio \
+    --with-pcre-jit \
+    --with-openssl=/tmp/build/openssl-quic \
+    --with-openssl-opt=enable-tls1_3 \
+    --add-module=/tmp/build/ngx_brotli && \
+    make -j"$(nproc)" && \
+    make install
+
+FROM debian:bookworm-slim
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y \
+    ca-certificates zlib1g libpcre2-8-0 && \
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /var/cache/nginx /var/log/nginx /usr/share/nginx/html
+
+COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
+COPY --from=builder /etc/nginx /etc/nginx
+COPY --from=builder /usr/lib/nginx/modules /usr/lib/nginx/modules
+
+EXPOSE 80/tcp 443/tcp 443/udp
+
+CMD ["nginx", "-g", "daemon off;"]
+

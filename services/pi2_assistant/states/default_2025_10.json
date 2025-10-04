@@ -1,0 +1,820 @@
+{
+  "expenses": [
+    {
+      "amount": 25.5,
+      "category": "Groceries",
+      "merchant": "Walmart",
+      "date": "2025-10-02T17:17:13.708552"
+    }
+  ],
+  "budget": 7910.0,
+  "user_id": "default",
+  "currency": "CAD",
+  "monthly_spent": 411.0,
+  "remaining": 7499.0,
+  "history": [
+    {
+      "id": "9404e782-158d-4916-8240-6925c854a589",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-04T00:00:26.245592",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "94ae3d28-9540-427f-b1ac-530e2bf0148b",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:59:26.176742",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "d9b9d370-0496-4576-8816-a53fef4b65e7",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:59:24.653153",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "8fc415c4-5be8-4596-a5e9-037c1a97a3a5",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:38.485849",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "2990ceed-fc76-47b8-b58d-933b8a55e822",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:38.303810",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "7a975b43-680b-4c19-8653-b4a95b0d2dc2",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:38.102228",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "7025a398-5280-48c4-9dc4-0e7d4cfc33d2",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:37.885559",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "af5130f1-282c-435d-ba4d-693a6462c5d2",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:37.660601",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "ba048f29-3dd4-4228-8f74-ac9cfb6e903b",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:37.459714",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "c987906a-22b4-4d76-802a-4c7ab467c1f3",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:37.264161",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "7953a834-ed90-44b9-ac42-2ca2c225f0c6",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:37.052507",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "650763d8-0677-4244-bccb-88298b125605",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:36.852422",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "ff822803-90ba-476f-ada0-bca68b9602ef",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:36.664460",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "7e33b6ca-3aa4-47b3-933f-57bf0b36489c",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:36.452479",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "c2a013d0-3dda-4945-ae38-89378fbf2bbc",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:36.218547",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "b2f9d1b5-7e1d-4778-af9f-42140730b5c6",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:35.985502",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "65f5a040-9e1e-4d3c-a76e-468561527700",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:35.685152",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "840233db-ad08-4f6f-be7e-dc4f688041f0",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:35.392342",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "f611b783-25fa-49fc-b679-41782b88c30e",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:34.867031",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "1b090df5-b79d-4532-9a89-4e2e12caf16c",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:34.403226",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "9d6b2787-29fa-4943-a7b0-985922ecba65",
+      "type": "expense",
+      "amount": 1.0,
+      "description": "Test expense for refresh",
+      "category": "other",
+      "timestamp": "2025-10-03T23:58:33.318693",
+      "merchant": "Test Merchant"
+    },
+    {
+      "id": "ad78a0af-6146-487d-bdec-5fd1683af217",
+      "type": "expense",
+      "amount": 15.0,
+      "description": "on test coffee",
+      "category": "food",
+      "timestamp": "2025-10-03T23:33:27.310826",
+      "merchant": "on test coffee"
+    },
+    {
+      "id": "a2c190fc-2987-4ad6-99b1-ecdcde3a1e06",
+      "type": "expense",
+      "amount": 200.0,
+      "description": "dollars buying a new TV. Please add it to the expenses",
+      "category": "other",
+      "timestamp": "2025-10-03T23:27:32.109173",
+      "merchant": "dollars buying a new TV. Please add it to the expenses"
+    },
+    {
+      "id": "6b5f4c1b-7725-4872-a441-a1fdce0cf831",
+      "type": "expense",
+      "amount": 35.0,
+      "description": "I bought groceries for 35 dollars",
+      "category": "other",
+      "timestamp": "2025-10-03T23:06:19.085069",
+      "merchant": "I bought groceries for 35 dollars"
+    },
+    {
+      "id": "b6dd6de0-f7f8-4de1-8274-f7d494f8dee4",
+      "type": "expense",
+      "amount": 20.0,
+      "description": "spent 20 on food",
+      "category": "food",
+      "timestamp": "2025-10-03T23:06:12.113960",
+      "merchant": "spent 20 on food"
+    },
+    {
+      "id": "bf9f2fbe-b4eb-4145-8fed-8d31ed56da18",
+      "type": "expense",
+      "amount": 40.0,
+      "description": "spent 40 on entertainment",
+      "category": "entertainment",
+      "timestamp": "2025-10-03T23:06:05.246457",
+      "merchant": "spent 40 on entertainment"
+    },
+    {
+      "id": "e972c519-7bc6-4646-845f-0ee4026399d1",
+      "type": "expense",
+      "amount": 40.0,
+      "description": "I spent 40 on entertainment",
+      "category": "entertainment",
+      "timestamp": "2025-10-03T23:06:02.174137",
+      "merchant": "I spent 40 on entertainment"
+    },
+    {
+      "id": "aeb3c40e-a56b-42da-9202-2e764756b94b",
+      "type": "expense",
+      "amount": 30.0,
+      "description": "spent 30 on food",
+      "category": "food",
+      "timestamp": "2025-10-03T23:05:33.046022",
+      "merchant": "spent 30 on food"
+    },
+    {
+      "id": "5cd471c7-29be-4c1c-8a6e-e06b39e08a62",
+      "type": "expense",
+      "amount": 10.0,
+      "description": "in watter",
+      "category": "in",
+      "timestamp": "2025-10-03T22:29:24.342730",
+      "merchant": "in watter"
+    }
+  ],
+  "incomes": [
+    {
+      "id": "cad5a0a1-283d-49cd-94c8-b6bb6b19c327",
+      "type": "income",
+      "amount": 1500.0,
+      "source": "presenteb",
+      "description": "presenteb",
+      "timestamp": "2025-10-04T00:05:13.004802"
+    },
+    {
+      "id": "1b067898-079d-4edc-a931-621461b9694d",
+      "type": "income",
+      "amount": 1000.0,
+      "source": "I received 1000 salary",
+      "description": "I received 1000 salary",
+      "timestamp": "2025-10-03T23:06:29.037644"
+    }
+  ],
+  "goals": [],
+  "category_budgets": {
+    "groceries": 400.0,
+    "food_dining": 440.0,
+    "fuel": 300.0,
+    "public_transport": 80.0,
+    "transport_apps": 120.0,
+    "car_maintenance": 150.0,
+    "parking": 60.0,
+    "rent": 1200.0,
+    "electricity": 120.0,
+    "water": 80.0,
+    "internet": 100.0,
+    "home_supplies": 60.0,
+    "doctor": 200.0,
+    "pharmacy": 100.0,
+    "dentist": 150.0,
+    "optician": 80.0,
+    "gym": 80.0,
+    "entertainment": 80.0,
+    "streaming": 50.0,
+    "games": 40.0,
+    "travel": 300.0,
+    "books": 60.0,
+    "clothing": 150.0,
+    "shoes": 80.0,
+    "tech": 200.0,
+    "gifts": 100.0,
+    "shopping": 80.0,
+    "personal_care": 60.0,
+    "laundry": 40.0,
+    "repairs": 80.0,
+    "documents": 50.0,
+    "work": 100.0,
+    "credit_card": 200.0,
+    "loan": 300.0,
+    "investments": 400.0,
+    "savings": 200.0,
+    "insurance": 150.0,
+    "children": 300.0,
+    "pet": 80.0,
+    "family": 200.0,
+    "parties": 100.0,
+    "daycare": 400.0,
+    "unexpected": 150.0,
+    "gambling": 50.0,
+    "subscriptions": 30.0,
+    "vices": 60.0,
+    "other": 100.0
+  },
+  "settings": {
+    "budget_mode": "standard"
+  },
+  "icons": [
+    {
+      "id": "other",
+      "name": "Other",
+      "emoji": "✨",
+      "budget": 100.0,
+      "spent": 256.0,
+      "transactions": 23,
+      "active": false
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "emoji": "🎬",
+      "budget": 80.0,
+      "spent": 80.0,
+      "transactions": 2,
+      "active": false
+    },
+    {
+      "id": "food",
+      "name": "Food",
+      "emoji": "??",
+      "budget": 0.0,
+      "spent": 65.0,
+      "transactions": 3,
+      "active": false
+    },
+    {
+      "id": "in",
+      "name": "In",
+      "emoji": "??",
+      "budget": 0.0,
+      "spent": 10.0,
+      "transactions": 1,
+      "active": false
+    },
+    {
+      "id": "groceries",
+      "name": "Groceries",
+      "emoji": "🛒",
+      "budget": 400.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "food_dining",
+      "name": "Food & Dining",
+      "emoji": "🍽️",
+      "budget": 440.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "fuel",
+      "name": "Fuel",
+      "emoji": "⛽",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "public_transport",
+      "name": "Public Transport",
+      "emoji": "🚇",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "transport_apps",
+      "name": "Transport Apps",
+      "emoji": "🚕",
+      "budget": 120.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "car_maintenance",
+      "name": "Car Maintenance",
+      "emoji": "🔧",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "parking",
+      "name": "Parking",
+      "emoji": "🅿️",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "rent",
+      "name": "Rent/Mortgage",
+      "emoji": "🏠",
+      "budget": 1200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "electricity",
+      "name": "Electricity",
+      "emoji": "⚡",
+      "budget": 120.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "emoji": "💧",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "internet",
+      "name": "Internet/Phone",
+      "emoji": "📶",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "home_supplies",
+      "name": "Home Supplies",
+      "emoji": "🧹",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "doctor",
+      "name": "Doctor",
+      "emoji": "🏥",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "pharmacy",
+      "name": "Pharmacy",
+      "emoji": "💊",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "dentist",
+      "name": "Dentist",
+      "emoji": "🦷",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "optician",
+      "name": "Optician",
+      "emoji": "👓",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "gym",
+      "name": "Gym",
+      "emoji": "💪",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "streaming",
+      "name": "Streaming",
+      "emoji": "📺",
+      "budget": 50.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "games",
+      "name": "Games",
+      "emoji": "🎮",
+      "budget": 40.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "travel",
+      "name": "Travel",
+      "emoji": "✈️",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "books",
+      "name": "Books",
+      "emoji": "📚",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "emoji": "👕",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "shoes",
+      "name": "Shoes",
+      "emoji": "👟",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "tech",
+      "name": "Tech",
+      "emoji": "💻",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "gifts",
+      "name": "Gifts",
+      "emoji": "🎁",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "shopping",
+      "name": "Shopping",
+      "emoji": "🛍️",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "personal_care",
+      "name": "Personal Care",
+      "emoji": "💇‍♀️",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry",
+      "emoji": "🧺",
+      "budget": 40.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "repairs",
+      "name": "Repairs",
+      "emoji": "🛠️",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "documents",
+      "name": "Documents",
+      "emoji": "📄",
+      "budget": 50.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "work",
+      "name": "Work",
+      "emoji": "💼",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "credit_card",
+      "name": "Credit Card",
+      "emoji": "💳",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "loan",
+      "name": "Loan",
+      "emoji": "🏛️",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "investments",
+      "name": "Investments",
+      "emoji": "📈",
+      "budget": 400.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "savings",
+      "name": "Savings",
+      "emoji": "💰",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "insurance",
+      "name": "Insurance",
+      "emoji": "🛡️",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "children",
+      "name": "Children",
+      "emoji": "👶",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "pet",
+      "name": "Pet",
+      "emoji": "🐾",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "emoji": "👨‍👩‍👧",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "parties",
+      "name": "Parties",
+      "emoji": "🎉",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "daycare",
+      "name": "Daycare",
+      "emoji": "🍼",
+      "budget": 400.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "unexpected",
+      "name": "Unexpected",
+      "emoji": "⚠️",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "gambling",
+      "name": "Gambling",
+      "emoji": "🎲",
+      "budget": 50.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "subscriptions",
+      "name": "Subscriptions",
+      "emoji": "📰",
+      "budget": 30.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "vices",
+      "name": "Vices",
+      "emoji": "🚭",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    }
+  ],
+  "active_icons": [],
+  "merchant_rules": {
+    "in watter": "in",
+    "spent 30 on food": "food",
+    "i spent 40 on entertainment": "entertainment",
+    "spent 40 on entertainment": "entertainment",
+    "spent 20 on food": "food",
+    "on test coffee": "food"
+  },
+  "subcategory_budgets": {},
+  "period": "2025_10",
+  "period_started_at": "2025-10-03T22:29:24.341730",
+  "previous_period": null,
+  "period_start": "2025-10-01T00:00:00",
+  "period_end": "2025-10-31T23:59:59",
+  "period_label": "October 2025",
+  "days_in_period": 31,
+  "day_index": 4,
+  "days_remaining": 27,
+  "is_current_period": true,
+  "next_period": "2025-11",
+  "available_periods": [
+    {
+      "id": "2025-10",
+      "label": "October 2025",
+      "is_current": true
+    }
+  ]
+}

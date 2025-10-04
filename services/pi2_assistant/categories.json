@@ -1,0 +1,635 @@
+[
+  {
+    "id": "groceries",
+    "name": "Groceries",
+    "emoji": "🛒",
+    "budget": 400,
+    "keywords": [
+      "groceries",
+      "supermarket",
+      "market",
+      "food shopping",
+      "costco",
+      "walmart",
+      "whole foods",
+      "trader joes"
+    ]
+  },
+  {
+    "id": "food_dining",
+    "name": "Food & Dining",
+    "emoji": "🍽️",
+    "budget": 440,
+    "keywords": [
+      "pizza",
+      "fastfood",
+      "mcdonalds",
+      "burger king",
+      "bk",
+      "subway",
+      "snack",
+      "kfc",
+      "delivery",
+      "ifood",
+      "rappi",
+      "doordash",
+      "uber eats",
+      "cafe",
+      "bakery",
+      "starbucks",
+      "tims",
+      "coffee",
+      "bread",
+      "cake",
+      "croissant",
+      "bar",
+      "beer",
+      "pub",
+      "happy hour",
+      "drinks",
+      "wine",
+      "alcohol",
+      "drink",
+      "restaurant",
+      "lunch",
+      "dinner",
+      "dining",
+      "food",
+      "rodizio",
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "fuel",
+    "name": "Fuel",
+    "emoji": "⛽",
+    "budget": 300,
+    "keywords": [
+      "fuel",
+      "gas",
+      "gasoline",
+      "ethanol",
+      "diesel",
+      "gas station",
+      "shell",
+      "chevron",
+      "exxon"
+    ]
+  },
+  {
+    "id": "public_transport",
+    "name": "Public Transport",
+    "emoji": "🚇",
+    "budget": 80,
+    "keywords": [
+      "metro",
+      "subway",
+      "train",
+      "bus",
+      "transit",
+      "fare",
+      "pass"
+    ]
+  },
+  {
+    "id": "transport_apps",
+    "name": "Transport Apps",
+    "emoji": "🚕",
+    "budget": 120,
+    "keywords": [
+      "uber",
+      "taxi",
+      "99",
+      "cabify",
+      "lyft",
+      "ride",
+      "transport",
+      "app"
+    ]
+  },
+  {
+    "id": "car_maintenance",
+    "name": "Car Maintenance",
+    "emoji": "🔧",
+    "budget": 150,
+    "keywords": [
+      "mechanic",
+      "workshop",
+      "car",
+      "repair",
+      "service",
+      "oil",
+      "tire"
+    ]
+  },
+  {
+    "id": "parking",
+    "name": "Parking",
+    "emoji": "🅿️",
+    "budget": 60,
+    "keywords": [
+      "parking",
+      "garage",
+      "valet",
+      "spot"
+    ]
+  },
+  {
+    "id": "rent",
+    "name": "Rent/Mortgage",
+    "emoji": "🏠",
+    "budget": 1200,
+    "keywords": [
+      "rent",
+      "mortgage",
+      "condo fee",
+      "housing",
+      "payment"
+    ]
+  },
+  {
+    "id": "electricity",
+    "name": "Electricity",
+    "emoji": "⚡",
+    "budget": 120,
+    "keywords": [
+      "electricity",
+      "power",
+      "utility",
+      "electricity bill"
+    ]
+  },
+  {
+    "id": "water",
+    "name": "Water",
+    "emoji": "💧",
+    "budget": 80,
+    "keywords": [
+      "water",
+      "water bill",
+      "utilities"
+    ]
+  },
+  {
+    "id": "internet",
+    "name": "Internet/Phone",
+    "emoji": "📶",
+    "budget": 100,
+    "keywords": [
+      "internet",
+      "wifi",
+      "broadband",
+      "comcast",
+      "verizon",
+      "at&t",
+      "mobile",
+      "phone plan"
+    ]
+  },
+  {
+    "id": "home_supplies",
+    "name": "Home Supplies",
+    "emoji": "🧹",
+    "budget": 60,
+    "keywords": [
+      "home",
+      "cleaning",
+      "cleaning supplies",
+      "decoration",
+      "utensils"
+    ]
+  },
+  {
+    "id": "doctor",
+    "name": "Doctor",
+    "emoji": "🏥",
+    "budget": 200,
+    "keywords": [
+      "doctor",
+      "appointment",
+      "hospital",
+      "exam",
+      "health plan"
+    ]
+  },
+  {
+    "id": "pharmacy",
+    "name": "Pharmacy",
+    "emoji": "💊",
+    "budget": 100,
+    "keywords": [
+      "remedy",
+      "pharmacy",
+      "drugstore",
+      "medication",
+      "cvs",
+      "walgreens"
+    ]
+  },
+  {
+    "id": "dentist",
+    "name": "Dentist",
+    "emoji": "🦷",
+    "budget": 150,
+    "keywords": [
+      "dentist",
+      "orthodontist",
+      "braces",
+      "dental treatment"
+    ]
+  },
+  {
+    "id": "optician",
+    "name": "Optician",
+    "emoji": "👓",
+    "budget": 80,
+    "keywords": [
+      "optician",
+      "glasses",
+      "contact lenses",
+      "eye exam"
+    ]
+  },
+  {
+    "id": "gym",
+    "name": "Gym",
+    "emoji": "💪",
+    "budget": 80,
+    "keywords": [
+      "gym",
+      "fitness",
+      "workout",
+      "membership"
+    ]
+  },
+  {
+    "id": "entertainment",
+    "name": "Entertainment",
+    "emoji": "🎬",
+    "budget": 80,
+    "keywords": [
+      "cinema",
+      "movies",
+      "tickets",
+      "concerts",
+      "shows"
+    ]
+  },
+  {
+    "id": "streaming",
+    "name": "Streaming",
+    "emoji": "📺",
+    "budget": 50,
+    "keywords": [
+      "netflix",
+      "streaming",
+      "hbo",
+      "disney+",
+      "amazon prime",
+      "hulu",
+      "subscription"
+    ]
+  },
+  {
+    "id": "games",
+    "name": "Games",
+    "emoji": "🎮",
+    "budget": 40,
+    "keywords": [
+      "games",
+      "steam",
+      "playstation",
+      "xbox",
+      "nintendo",
+      "epic games"
+    ]
+  },
+  {
+    "id": "travel",
+    "name": "Travel",
+    "emoji": "✈️",
+    "budget": 300,
+    "keywords": [
+      "travel",
+      "vacation",
+      "flight",
+      "hotel",
+      "airbnb",
+      "tourism"
+    ]
+  },
+  {
+    "id": "books",
+    "name": "Books",
+    "emoji": "📚",
+    "budget": 60,
+    "keywords": [
+      "books",
+      "bookstore",
+      "amazon",
+      "kindle",
+      "ebook"
+    ]
+  },
+  {
+    "id": "clothing",
+    "name": "Clothing",
+    "emoji": "👕",
+    "budget": 150,
+    "keywords": [
+      "clothes",
+      "apparel",
+      "shirt",
+      "pants",
+      "zara",
+      "gap"
+    ]
+  },
+  {
+    "id": "shoes",
+    "name": "Shoes",
+    "emoji": "👟",
+    "budget": 80,
+    "keywords": [
+      "shoes",
+      "sneakers",
+      "footwear",
+      "nike",
+      "adidas"
+    ]
+  },
+  {
+    "id": "tech",
+    "name": "Tech",
+    "emoji": "💻",
+    "budget": 200,
+    "keywords": [
+      "tech",
+      "electronics",
+      "phone",
+      "notebook",
+      "gadget"
+    ]
+  },
+  {
+    "id": "gifts",
+    "name": "Gifts",
+    "emoji": "🎁",
+    "budget": 100,
+    "keywords": [
+      "gifts",
+      "birthday",
+      "christmas",
+      "present"
+    ]
+  },
+  {
+    "id": "shopping",
+    "name": "Shopping",
+    "emoji": "🛍️",
+    "budget": 80,
+    "keywords": [
+      "shopping",
+      "online",
+      "mercado libre",
+      "amazon",
+      "aliexpress"
+    ]
+  },
+  {
+    "id": "personal_care",
+    "name": "Personal Care",
+    "emoji": "💇‍♀️",
+    "budget": 60,
+    "keywords": [
+      "hair",
+      "hairdresser",
+      "salon",
+      "barber",
+      "haircut"
+    ]
+  },
+  {
+    "id": "laundry",
+    "name": "Laundry",
+    "emoji": "🧺",
+    "budget": 40,
+    "keywords": [
+      "laundry",
+      "dry cleaning"
+    ]
+  },
+  {
+    "id": "repairs",
+    "name": "Repairs",
+    "emoji": "🛠️",
+    "budget": 80,
+    "keywords": [
+      "repairs",
+      "maintenance",
+      "electrician",
+      "plumber"
+    ]
+  },
+  {
+    "id": "documents",
+    "name": "Documents",
+    "emoji": "📄",
+    "budget": 50,
+    "keywords": [
+      "documents",
+      "notary",
+      "passport",
+      "id",
+      "certificate"
+    ]
+  },
+  {
+    "id": "work",
+    "name": "Work",
+    "emoji": "💼",
+    "budget": 100,
+    "keywords": [
+      "work",
+      "office",
+      "supplies",
+      "business lunch"
+    ]
+  },
+  {
+    "id": "credit_card",
+    "name": "Credit Card",
+    "emoji": "💳",
+    "budget": 200,
+    "keywords": [
+      "credit card",
+      "invoice",
+      "annual fee"
+    ]
+  },
+  {
+    "id": "loan",
+    "name": "Loan",
+    "emoji": "🏛️",
+    "budget": 300,
+    "keywords": [
+      "loan",
+      "financing",
+      "installment",
+      "interest"
+    ]
+  },
+  {
+    "id": "investments",
+    "name": "Investments",
+    "emoji": "📈",
+    "budget": 400,
+    "keywords": [
+      "investment",
+      "stocks",
+      "stock market",
+      "bonds",
+      "crypto",
+      "bitcoin"
+    ]
+  },
+  {
+    "id": "savings",
+    "name": "Savings",
+    "emoji": "💰",
+    "budget": 200,
+    "keywords": [
+      "emergency fund",
+      "savings",
+      "saving money"
+    ]
+  },
+  {
+    "id": "insurance",
+    "name": "Insurance",
+    "emoji": "🛡️",
+    "budget": 150,
+    "keywords": [
+      "life insurance",
+      "car insurance",
+      "health insurance"
+    ]
+  },
+  {
+    "id": "children",
+    "name": "Children",
+    "emoji": "👶",
+    "budget": 300,
+    "keywords": [
+      "children",
+      "kids",
+      "school",
+      "toys",
+      "allowance"
+    ]
+  },
+  {
+    "id": "pet",
+    "name": "Pet",
+    "emoji": "🐾",
+    "budget": 80,
+    "keywords": [
+      "pet",
+      "pet food",
+      "vet",
+      "petshop"
+    ]
+  },
+  {
+    "id": "family",
+    "name": "Family",
+    "emoji": "👨‍👩‍👧",
+    "budget": 200,
+    "keywords": [
+      "parents",
+      "family support",
+      "gift for parents"
+    ]
+  },
+  {
+    "id": "parties",
+    "name": "Parties",
+    "emoji": "🎉",
+    "budget": 100,
+    "keywords": [
+      "parties",
+      "events",
+      "birthday",
+      "wedding",
+      "clubbing"
+    ]
+  },
+  {
+    "id": "daycare",
+    "name": "Daycare",
+    "emoji": "🍼",
+    "budget": 400,
+    "keywords": [
+      "daycare",
+      "nursery",
+      "preschool"
+    ]
+  },
+  {
+    "id": "unexpected",
+    "name": "Unexpected",
+    "emoji": "⚠️",
+    "budget": 150,
+    "keywords": [
+      "unexpected",
+      "emergency",
+      "fine"
+    ]
+  },
+  {
+    "id": "gambling",
+    "name": "Gambling",
+    "emoji": "🎲",
+    "budget": 50,
+    "keywords": [
+      "gambling",
+      "lottery",
+      "betting",
+      "casino"
+    ]
+  },
+  {
+    "id": "subscriptions",
+    "name": "Subscriptions",
+    "emoji": "📰",
+    "budget": 30,
+    "keywords": [
+      "subscription",
+      "newspaper",
+      "magazine",
+      "subscription box"
+    ]
+  },
+  {
+    "id": "vices",
+    "name": "Vices",
+    "emoji": "🚭",
+    "budget": 60,
+    "keywords": [
+      "vices",
+      "cigarettes",
+      "tobacco"
+    ]
+  },
+  {
+    "id": "other",
+    "name": "Other",
+    "emoji": "✨",
+    "budget": 100,
+    "keywords": [
+      "other",
+      "miscellaneous",
+      "general"
+    ]
+  }
+]

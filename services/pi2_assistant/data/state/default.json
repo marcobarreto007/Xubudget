@@ -1,0 +1,33 @@
+{
+  "user_id": "default",
+  "budget": 4000.0,
+  "monthly_spent": 1931.0,
+  "remaining": 2069.0,
+  "history": [
+    {
+      "type": "expense",
+      "amount": 100.0,
+      "description": "tim hortons",
+      "timestamp": "2025-09-22T03:12:59.228515"
+    },
+    {
+      "type": "expense",
+      "amount": 50.0,
+      "description": "cassino",
+      "timestamp": "2025-09-22T03:15:01.212645"
+    },
+    {
+      "type": "expense",
+      "amount": 1756.0,
+      "description": "new TV",
+      "timestamp": "2025-09-23T01:26:03.214233"
+    },
+    {
+      "type": "expense",
+      "amount": 25.0,
+      "description": "gaming with friend",
+      "timestamp": "2025-09-23T01:27:30.544123"
+    }
+  ],
+  "category_budgets": {}
+}

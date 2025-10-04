@@ -1,0 +1,104 @@
+{
+  "user_id": "default",
+  "current_month": "2025-10",
+  "icons": {
+    "supermercado": {
+      "id": "supermercado",
+      "name": "Supermercado",
+      "icon": "\ud83d\uded2",
+      "budget": 400,
+      "spent": 0,
+      "color": "#48bb78"
+    },
+    "transporte": {
+      "id": "transporte",
+      "name": "Transporte",
+      "icon": "\ud83d\ude97",
+      "budget": 200,
+      "spent": 0,
+      "color": "#4299e1"
+    },
+    "alimentacao": {
+      "id": "alimentacao",
+      "name": "Alimenta\u00e7\u00e3o",
+      "icon": "\ud83c\udf55",
+      "budget": 300,
+      "spent": 0,
+      "color": "#ed8936"
+    },
+    "contas": {
+      "id": "contas",
+      "name": "Contas",
+      "icon": "\u26a1",
+      "budget": 250,
+      "spent": 0,
+      "color": "#805ad5"
+    },
+    "internet": {
+      "id": "internet",
+      "name": "Internet",
+      "icon": "\ud83d\udcf6",
+      "budget": 100,
+      "spent": 0,
+      "color": "#38b2ac"
+    },
+    "cafe": {
+      "id": "cafe",
+      "name": "Caf\u00e9",
+      "icon": "\u2615",
+      "budget": 60,
+      "spent": 0,
+      "color": "#d69e2e"
+    },
+    "uber": {
+      "id": "uber",
+      "name": "Uber",
+      "icon": "\ud83d\ude97",
+      "budget": 120,
+      "spent": 0,
+      "color": "#319795"
+    },
+    "saude": {
+      "id": "saude",
+      "name": "Sa\u00fade",
+      "icon": "\ud83d\udc8a",
+      "budget": 200,
+      "spent": 0,
+      "color": "#4facfe"
+    },
+    "lazer": {
+      "id": "lazer",
+      "name": "Lazer",
+      "icon": "\ud83c\udfac",
+      "budget": 150,
+      "spent": 0,
+      "color": "#f093fb"
+    },
+    "roupas": {
+      "id": "roupas",
+      "name": "Roupas",
+      "icon": "\ud83d\udc55",
+      "budget": 100,
+      "spent": 0,
+      "color": "#43e97b"
+    },
+    "educacao": {
+      "id": "educacao",
+      "name": "Educa\u00e7\u00e3o",
+      "icon": "\ud83d\udcda",
+      "budget": 100,
+      "spent": 0,
+      "color": "#fa709a"
+    },
+    "beleza": {
+      "id": "beleza",
+      "name": "Beleza",
+      "icon": "\ud83d\udc84",
+      "budget": 80,
+      "spent": 0,
+      "color": "#fee140"
+    }
+  },
+  "total_income": 0,
+  "expenses": []
+}

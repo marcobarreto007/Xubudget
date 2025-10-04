@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  # usa o serviço 'api' já definido no docker-compose.yml principal
+  # (FastAPI em pi2_server:app ouvindo em 8000)
+  web:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.quic-brotli
+    image: xuzinha-nginx-quic
+    container_name: xuzinha_web
+    depends_on:
+      - api
+    ports:
+      - "443:443/tcp"
+      - "443:443/udp"
+      - "80:80"
+    volumes:
+      # config nginx completa
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # certificados gerados pelo script (mkcert)
+      - ./nginx/certs:/etc/nginx/certs:ro
+      # build estático do frontend
+      - ./new_frontend/build:/usr/share/nginx/html:ro
+    restart: unless-stopped

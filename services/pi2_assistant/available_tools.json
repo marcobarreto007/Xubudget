@@ -1,0 +1,31 @@
+﻿[
+  {
+    "name": "get_financial_summary",
+    "description": "Get a financial snapshot for the current month: total income, total expenses, available amount, and all category budgets.",
+    "parameters": {"type": "object", "properties": {}}
+  },
+  {
+    "name": "get_transactions_by_category",
+    "description": "Fetch the recent transactions for a given category within a time window.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "category_name": {"type": "string", "description": "Category name (e.g., 'Supermarket', 'Leisure')."},
+        "period_days": {"type": "integer", "description": "Days to analyze (e.g., 7, 30, 90). Default 30."}
+      },
+      "required": ["category_name"]
+    }
+  },
+  {
+    "name": "run_what_if_simulation",
+    "description": "Simulate the impact of a future spend or income on the monthly budget.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amount": {"type": "number", "description": "Amount. Positive for income, negative for expense."},
+        "category_name": {"type": "string", "description": "Category to consider."}
+      },
+      "required": ["amount", "category_name"]
+    }
+  }
+]

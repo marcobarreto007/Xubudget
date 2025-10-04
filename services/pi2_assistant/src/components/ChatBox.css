@@ -1,0 +1,222 @@
+﻿.chatbox {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  min-height: 360px;
+}
+
+.chatbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chatbox__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chatbox__emoji {
+  font-size: 1.6rem;
+}
+
+.chatbox__name {
+  display: block;
+  font-weight: 600;
+}
+
+.chatbox__subtitle {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.chatbox__controls {
+  display: flex;
+  gap: 8px;
+}
+
+.chatbox__toggle {
+  border: none;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-strong);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.chatbox__toggle:hover {
+  transform: translateY(-2px);
+}
+
+.chatbox__toggle--active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+}
+
+.chatbox__messages {
+  flex: 1;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+.chatbox__message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.chatbox__message--user {
+  flex-direction: row-reverse;
+}
+
+.chatbox__avatar {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.chatbox__bubble-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 76%;
+}
+
+.chatbox__bubble {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  background: rgba(226, 232, 240, 0.6);
+  color: var(--text-primary);
+}
+
+.chatbox__bubble--user {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+}
+
+.chatbox__bubble--ai {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.chatbox__bubble--error {
+  background: rgba(220, 38, 38, 0.12);
+  color: var(--danger);
+}
+
+.chatbox__bubble--loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.chatbox__bubble--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.chatbox__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chatbox__meta-chip {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-strong);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chatbox__input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding: 16px 20px;
+}
+
+.chatbox__input input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.chatbox__input input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.18);
+}
+
+.chatbox__input button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.25);
+}
+
+.chatbox__input button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.chatbox__input button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .chatbox {
+    min-height: 280px;
+  }
+  .chatbox__messages {
+    max-height: 320px;
+  }
+}
+
+.tts-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+}
+

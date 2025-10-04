@@ -1,0 +1,33 @@
+import Card from "../../ui/Card";
+import Progress from "../../ui/Progress";
+
+export default function IconBudgetGrid({icons=[]}) {
+  return (
+    <div className="grid">
+      {icons.filter(i=>i.active).map((it)=> {
+        const pct = it.budget>0 ? Math.min(100, (it.spent/it.budget)*100) : 0;
+        const over = it.budget>0 && it.spent>it.budget;
+        return (
+          <Card key={it.id} className="iconcard">
+            <div className="iconrow">
+              <div className="emoji">{it.emoji}</div>
+              <div style={{flex:1}}>
+                <div className="title">{it.name}</div>
+                <div className="meta">
+                  {it.budget>0
+                    ? `$ ${it.spent.toFixed(2)} / ${it.budget.toFixed(2)}`
+                    : `$ ${it.spent.toFixed(2)} (sem limite)`
+                  }
+                </div>
+              </div>
+              <div className={`badge ${over?"over":""}`} title="percentual">
+                {it.budget>0 ? `${((it.spent/it.budget)*100).toFixed(0)}%` : "–"}
+              </div>
+            </div>
+            {it.budget>0 && <Progress value={pct} over={over} />}
+          </Card>
+        );
+      })}
+    </div>
+  );
+}

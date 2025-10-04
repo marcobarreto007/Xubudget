@@ -1,0 +1,48 @@
+# === docker-compose.yml ===
+# REM Define o ambiente containerizado completo para o Xubudget.
+
+services:
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    container_name: xubudget_ollama
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: xubudget_api
+    ports:
+      - "8000:8000"
+    environment:
+      - XUB_DB_PATH=/app/db/xubudget.db
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./db:/app/db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      - ollama
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      args:
+        - REACT_APP_API_BASE=http://localhost:8000
+    container_name: xubudget_web
+    ports:
+      - "3000:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  ollama_data:
+    driver: local

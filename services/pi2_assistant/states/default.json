@@ -1,0 +1,621 @@
+{
+  "user_id": "default",
+  "budget": 7900.0,
+  "monthly_spent": 5.0,
+  "remaining": 7895.0,
+  "history": [
+    {
+      "type": "expense",
+      "amount": 20.0,
+      "description": "gastei 20 em lanche",
+      "category": "fast_food",
+      "timestamp": "2025-09-23T11:52:49.586202",
+      "id": "4a43be7b-7fd0-49ff-a9ad-9971769324e8"
+    },
+    {
+      "type": "expense",
+      "amount": 30.0,
+      "description": "Gasto em cafe",
+      "category": "cafe",
+      "timestamp": "2025-09-23T11:52:57.600029",
+      "id": "1d7a4b67-2f25-4a72-8446-752e92c45716"
+    },
+    {
+      "type": "expense",
+      "amount": 40.0,
+      "description": "Gasto em cafe",
+      "category": "cafe",
+      "timestamp": "2025-09-23T11:53:05.168274",
+      "id": "28814120-08be-4818-8716-e2eb9ba703b7"
+    },
+    {
+      "type": "expense",
+      "amount": 20.0,
+      "description": "gastei 20 com uber\n",
+      "category": "uber",
+      "timestamp": "2025-09-23T11:54:37.190408",
+      "id": "890fea9a-2f08-4883-adce-b3aeb6dcb91c"
+    },
+    {
+      "type": "expense",
+      "amount": 20.0,
+      "description": "Categorize this as Transport: gastei 20 com uber\n",
+      "category": "uber",
+      "timestamp": "2025-09-23T11:54:40.680296",
+      "id": "ce99969b-3bbb-4292-8f99-cd0034653435"
+    },
+    {
+      "type": "expense",
+      "amount": 50.0,
+      "description": "gastei 50 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T03:22:03.259869",
+      "id": "c48768b2-d150-4258-9f7f-8b2a38970235"
+    },
+    {
+      "type": "expense",
+      "amount": 50.0,
+      "description": "gastei 50 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T03:22:23.267841",
+      "id": "58ad0b51-960b-46cd-b82e-d31217ef8988"
+    },
+    {
+      "type": "expense",
+      "amount": 50.0,
+      "description": "Categorize this as Transport: gastei 50 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T03:22:35.610075",
+      "id": "50323899-d516-4102-92db-4359275a7c90"
+    },
+    {
+      "type": "expense",
+      "amount": 100.0,
+      "description": "I spent 100 at tim hortons",
+      "category": "internet",
+      "timestamp": "2025-09-24T03:25:38.330439",
+      "id": "d1d887a5-39be-4805-8a98-3b0048483244"
+    },
+    {
+      "type": "expense",
+      "amount": 50.0,
+      "description": "gastei 50 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T14:56:55.908234",
+      "id": "ee34b5b9-4116-4ddd-858c-e778e68b42a7"
+    },
+    {
+      "type": "expense",
+      "amount": 50.0,
+      "description": "gastei 50 no supermercado",
+      "category": "supermercado",
+      "timestamp": "2025-09-24T16:21:49.674712",
+      "id": "ea47e7f7-8e16-4b32-bf02-8964846de5fa"
+    },
+    {
+      "type": "expense",
+      "amount": 5.0,
+      "description": "I spent 5 dollars on coffee at starbucks",
+      "category": "food_dining",
+      "timestamp": "2025-10-02T17:28:16.350648",
+      "id": "d98314e1-cb39-4883-aea1-131af9e23107"
+    }
+  ],
+  "category_budgets": {
+    "groceries": 400.0,
+    "food_dining": 440.0,
+    "fuel": 300.0,
+    "public_transport": 80.0,
+    "transport_apps": 120.0,
+    "car_maintenance": 150.0,
+    "parking": 60.0,
+    "rent": 1200.0,
+    "electricity": 120.0,
+    "water": 80.0,
+    "internet": 50.0,
+    "home_supplies": 60.0,
+    "doctor": 200.0,
+    "pharmacy": 100.0,
+    "dentist": 150.0,
+    "optician": 80.0,
+    "gym": 80.0,
+    "entertainment": 80.0,
+    "streaming": 50.0,
+    "games": 40.0,
+    "travel": 300.0,
+    "books": 60.0,
+    "clothing": 150.0,
+    "shoes": 80.0,
+    "tech": 200.0,
+    "gifts": 100.0,
+    "shopping": 80.0,
+    "personal_care": 60.0,
+    "laundry": 40.0,
+    "repairs": 80.0,
+    "documents": 50.0,
+    "work": 100.0,
+    "credit_card": 200.0,
+    "loan": 300.0,
+    "investments": 400.0,
+    "savings": 200.0,
+    "insurance": 150.0,
+    "children": 300.0,
+    "pet": 80.0,
+    "family": 200.0,
+    "parties": 100.0,
+    "daycare": 400.0,
+    "unexpected": 150.0,
+    "gambling": 50.0,
+    "subscriptions": 30.0,
+    "vices": 60.0,
+    "other": 100.0
+  },
+  "incomes": [],
+  "settings": {
+    "budget_mode": "standard"
+  },
+  "icons": [
+    {
+      "id": "supermercado",
+      "name": "Supermercado",
+      "emoji": "🧾",
+      "budget": 0.0,
+      "spent": 250.0,
+      "transactions": 5,
+      "active": false
+    },
+    {
+      "id": "internet",
+      "name": "Internet/Phone",
+      "emoji": "📱",
+      "budget": 50.0,
+      "spent": 100.0,
+      "transactions": 1,
+      "active": false
+    },
+    {
+      "id": "cafe",
+      "name": "Cafe",
+      "emoji": "🧾",
+      "budget": 0.0,
+      "spent": 70.0,
+      "transactions": 2,
+      "active": false
+    },
+    {
+      "id": "uber",
+      "name": "Uber",
+      "emoji": "🧾",
+      "budget": 0.0,
+      "spent": 40.0,
+      "transactions": 2,
+      "active": false
+    },
+    {
+      "id": "fast_food",
+      "name": "Fast Food",
+      "emoji": "🧾",
+      "budget": 0.0,
+      "spent": 20.0,
+      "transactions": 1,
+      "active": false
+    },
+    {
+      "id": "food_dining",
+      "name": "Food & Dining",
+      "emoji": "🍔",
+      "budget": 440.0,
+      "spent": 5.0,
+      "transactions": 1,
+      "active": false
+    },
+    {
+      "id": "groceries",
+      "name": "Groceries",
+      "emoji": "🛒",
+      "budget": 400.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "fuel",
+      "name": "Fuel",
+      "emoji": "⛽",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "public_transport",
+      "name": "Public Transport",
+      "emoji": "🚇",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "transport_apps",
+      "name": "Transport Apps",
+      "emoji": "🚗",
+      "budget": 120.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "car_maintenance",
+      "name": "Car Maintenance",
+      "emoji": "🔧",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "parking",
+      "name": "Parking",
+      "emoji": "🅿️",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "rent",
+      "name": "Rent/Mortgage",
+      "emoji": "🏠",
+      "budget": 1200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "electricity",
+      "name": "Electricity",
+      "emoji": "⚡",
+      "budget": 120.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "emoji": "💧",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "home_supplies",
+      "name": "Home Supplies",
+      "emoji": "🧹",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "doctor",
+      "name": "Doctor",
+      "emoji": "🏥",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "pharmacy",
+      "name": "Pharmacy",
+      "emoji": "💊",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "dentist",
+      "name": "Dentist",
+      "emoji": "🦷",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "optician",
+      "name": "Optician",
+      "emoji": "👓",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "gym",
+      "name": "Gym",
+      "emoji": "💪",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "emoji": "🎬",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "streaming",
+      "name": "Streaming",
+      "emoji": "📺",
+      "budget": 50.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "games",
+      "name": "Games",
+      "emoji": "🎮",
+      "budget": 40.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "travel",
+      "name": "Travel",
+      "emoji": "✈️",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "books",
+      "name": "Books",
+      "emoji": "📚",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "emoji": "👕",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "shoes",
+      "name": "Shoes",
+      "emoji": "👟",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "tech",
+      "name": "Tech",
+      "emoji": "💻",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "gifts",
+      "name": "Gifts",
+      "emoji": "🎁",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "shopping",
+      "name": "Shopping",
+      "emoji": "🛍️",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "personal_care",
+      "name": "Personal Care",
+      "emoji": "✂️",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry",
+      "emoji": "🧺",
+      "budget": 40.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "repairs",
+      "name": "Repairs",
+      "emoji": "🛠️",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "documents",
+      "name": "Documents",
+      "emoji": "📄",
+      "budget": 50.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "work",
+      "name": "Work",
+      "emoji": "💼",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "credit_card",
+      "name": "Credit Card",
+      "emoji": "💳",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "loan",
+      "name": "Loan",
+      "emoji": "🏛️",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "investments",
+      "name": "Investments",
+      "emoji": "💰",
+      "budget": 400.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "savings",
+      "name": "Savings",
+      "emoji": "🎯",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "insurance",
+      "name": "Insurance",
+      "emoji": "🛡️",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "children",
+      "name": "Children",
+      "emoji": "👶",
+      "budget": 300.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "pet",
+      "name": "Pet",
+      "emoji": "🐾",
+      "budget": 80.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "emoji": "👨‍👩‍👧",
+      "budget": 200.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "parties",
+      "name": "Parties",
+      "emoji": "🎉",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "daycare",
+      "name": "Daycare",
+      "emoji": "🍼",
+      "budget": 400.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "unexpected",
+      "name": "Unexpected",
+      "emoji": "⁉️",
+      "budget": 150.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "gambling",
+      "name": "Gambling",
+      "emoji": "🎲",
+      "budget": 50.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "subscriptions",
+      "name": "Subscriptions",
+      "emoji": "📜",
+      "budget": 30.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "vices",
+      "name": "Vices",
+      "emoji": "🚬",
+      "budget": 60.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "emoji": "💸",
+      "budget": 100.0,
+      "spent": 0.0,
+      "transactions": 0,
+      "active": false
+    }
+  ],
+  "currency": "CAD",
+  "goals": [],
+  "active_icons": []
+}

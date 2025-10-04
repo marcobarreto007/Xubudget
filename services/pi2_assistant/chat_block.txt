@@ -1,0 +1,8 @@
+@api.post("/chat")
+async def chat_endpoint(payload: ChatRequest, request: Request):
+    user_id = payload.user_id or _get_user_id(request)
+    state = load_user_state(user_id)
+    reply = chat_ollama(payload.message)
+    return {"response": reply, "state": _state_public(state)}
+
+

@@ -1,0 +1,36 @@
+﻿# === Dockerfile.web ===
+# REM Define a imagem Docker para o frontend React, usando Nginx.
+
+# --- Build Stage ---
+FROM node:20-alpine as builder
+
+WORKDIR /app
+
+# REM Copia os arquivos de definicao de projeto e instala dependencias
+# REM O caminho agora eh relativo ao diretorio 'pi2_assistant'
+COPY ./new_frontend/package.json ./new_frontend/package-lock.json ./
+RUN npm ci
+
+# REM Copia o resto do codigo do frontend
+COPY ./new_frontend/ .
+
+# REM Builda a aplicacao para producao
+ARG REACT_APP_API_BASE
+ENV REACT_APP_API_BASE=$REACT_APP_API_BASE
+RUN npm run build
+
+# --- Runtime Stage ---
+FROM nginx:1.25-alpine
+
+# REM Copia os arquivos buildados da fase anterior
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# REM ExpÃµe a porta 80 (padrao do Nginx)
+EXPOSE 80
+
+# REM O Nginx inicia automaticamente ao rodar o container
+CMD ["nginx", "-g", "daemon off;"]
+
+# Custom Nginx config with SPA fallback
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+

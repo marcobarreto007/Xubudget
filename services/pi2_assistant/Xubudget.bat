@@ -1,0 +1,1 @@
+call "C:\Users\marco\Xubudget\Xubudget\services\pi2_assistant\RUN_ALL.cmd"
