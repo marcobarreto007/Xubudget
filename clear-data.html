@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpar Dados - Xubudget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        .button {
+            background: #dc2626;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .button:hover {
+            background: #b91c1c;
+        }
+        .success {
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Limpar Dados - Xubudget</h1>
+        <p>Esta página irá limpar todos os dados salvos no seu navegador.</p>
+        
+        <button class="button" onclick="clearAllData()">
+            🗑️ Limpar Todos os Dados
+        </button>
+        
+        <div id="success" class="success">
+            ✅ Dados limpos com sucesso! Você pode fechar esta página.
+        </div>
+        
+        <p style="margin-top: 30px; color: #666;">
+            <strong>O que será limpo:</strong><br>
+            • Todas as despesas<br>
+            • Todas as receitas<br>
+            • Configurações salvas<br>
+            • Histórico de categorização
+        </p>
+    </div>
+
+    <script>
+        function clearAllData() {
+            // Clear all localStorage data
+            localStorage.clear();
+            
+            // Clear sessionStorage data
+            sessionStorage.clear();
+            
+            // Show success message
+            document.getElementById('success').style.display = 'block';
+            
+            // Redirect to main app after 2 seconds
+            setTimeout(() => {
+                window.location.href = '/xubudget/';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
