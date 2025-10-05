@@ -1,7 +1,56 @@
-tools/_quarantine/
-data/exports/
-.env
-*.log
-.dart_tool/
+# Node
+node_modules/
+dist/
 build/
+.vite/
+.next/
+coverage/
+*.log
+npm-debug.log*
+yarn-*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# IDE/OS
 .vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Cache/temp
+.tmp/
+temp/
+tmp/
+.cache/
+*.bak
+*.old
+*.orig
+
+# Projeto Xubudget
+data/
+uploads/
+*.sqlite
+*.db
+
+# Mídia pesada
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.psd
+*.ai
+*.sketch
+
+# Front caches
+xuzinha_dashboard/.cache/
+xuzinha_dashboard/.turbo/
+xuzinha_dashboard/.parcel-cache/
