@@ -11,6 +11,7 @@ yarn-*.log
 
 # Python
 __pycache__/
+**/*/__pycache__/
 *.pyc
 *.pyo
 *.pyd
@@ -54,3 +55,7 @@ uploads/
 xuzinha_dashboard/.cache/
 xuzinha_dashboard/.turbo/
 xuzinha_dashboard/.parcel-cache/
+
+# Submodules
+services/pi2_assistant/services/xubudget-dashboard
+services/pi2_assistant/services/xubudget_api
