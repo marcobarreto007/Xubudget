@@ -19,7 +19,10 @@ from ai.tools.lang import detect_lang, lang_name
 
 CFG   = yaml.safe_load(open("config/ai_model.yaml","r",encoding="utf-8"))
 SYSTEM= open(CFG["system_prompt_path"],"r",encoding="utf-8").read()
-OLLAMA= OllamaClient(CFG["model"], CFG["temperature"], CFG["max_tokens"])
+LLM_OPTS = CFG.get("policy",{}).get("llm_options",{})
+OLLAMA= OllamaClient(CFG["model"], CFG["temperature"], CFG["max_tokens"], 
+                    repeat_penalty=LLM_OPTS.get("repeat_penalty"), 
+                    stop=LLM_OPTS.get("stop"))
 
 TOOLS = {
     "db.get_expenses": db_get_expenses,

@@ -257,7 +257,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       const { text, tools } = await sendToAgent(currentInput);
       
       // Check if modification tools were used and refresh data
-      if (tools.some(t => ['db.update_expense','db.set_category','db.reset'].includes(t))) {
+      if (tools.some(t => ['db.get_expenses', 'db.update_expense','db.set_category','db.reset'].includes(t))) {
         try {
           const data = await fetchTotals();
           console.log('Budget refreshed after modification:', data);

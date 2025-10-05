@@ -1,11 +1,13 @@
 import httpx
 
 class OllamaClient:
-    def __init__(self, model: str, temperature: float = 0.3, max_tokens: int = 160, base_url: str = "http://127.0.0.1:11434"):
+    def __init__(self, model: str, temperature: float = 0.3, max_tokens: int = 160, base_url: str = "http://127.0.0.1:11434", repeat_penalty: float = 1.2, stop: list = None):
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.base_url = base_url.rstrip("/")
+        self.repeat_penalty = repeat_penalty
+        self.stop = stop if stop is not None else ["OBS_TOOL", "USER:", "ASSISTANT:", "TOOL:"]
 
     def generate(self, prompt: str, json_mode: bool = True) -> str:
         payload = {
@@ -14,9 +16,9 @@ class OllamaClient:
             "options": {
                 "temperature": self.temperature,
                 "num_predict": self.max_tokens,
-                "repeat_penalty": 1.2,
+                "repeat_penalty": self.repeat_penalty,
                 "repeat_last_n": 64,
-                "stop": ["OBS_TOOL", "USER:", "ASSISTANT:", "TOOL:"]
+                "stop": self.stop
             },
             "stream": False
         }

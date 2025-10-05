@@ -37,3 +37,6 @@ policy:
   max_steps: 5
   max_same_tool: 2
   response: { max_sentences: 2, max_chars: 200 }
+  llm_options:
+    repeat_penalty: 1.2
+    stop: ["OBS_TOOL", "USER:", "ASSISTANT:", "TOOL:"]
