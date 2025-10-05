@@ -1,62 +1,58 @@
 Xubudget — Repo Analysis (MSAR)
 
-Branch correta: main (⚠️ não existe master).
+Branch padrão: main (⚠️ não existe master).
 Stack alvo: React (3000) + FastAPI (8000) + Ollama deepseek-r1:7b.
-Meta: IA age (db.*) + responde curta + UI atualiza.
+Objetivo: IA age (db.*) com respostas curtas e UI atualiza na hora.
 
 1) DIVERGENCE
 
-README e scripts antigos falam Flutter / Qwen / porta 5005.
+README/scripts antigos falam Flutter/Qwen/5005; runtime real é Web + FastAPI 8000 + DeepSeek.
 
-Runtime atual é Web/React + FastAPI 8000 + DeepSeek (Ollama).
+Front não refaz fetch após ações → parece “cego”.
 
-Front ainda não refresca após db.update_expense → parece “cego”.
+Agente às vezes rumina (loops / textão) → falta anti-loop + finalização em JSON.
 
-Agente às vezes rumina (loops / textão) → falta anti-loop + finalização.
-
-Codex falhou com Provided git ref master does not exist → branch é main.
+Codex errou por git ref master inexistente → branch é main.
 
 2) PATH_FIX (mínimo que resolve)
 
 Backend (8000)
 
-Orquestrador com anti-loop (max 3 passos / no-repeat).
+Orquestrador com anti-loop (máx. 3 passos; sem repetir a mesma tool).
 
-Roteador de intenção (PT/EN/ES) → db.get_expenses, db.update_expense, db.set_category, db.reset.
+Roteador de intenção (PT/EN/ES): db.get_expenses, db.update_expense, db.set_category, db.reset.
 
-JSON estrito (final_answer, used_tools), respostas ≤ 2 frases.
+Saída JSON estrita { final_answer, used_tools } e clamp (≤ 2 frases / 180 chars).
 
-Endpoints extra: GET /api/expenses/totals e GET / (health).
+Endpoints: GET / (health) e GET /api/expenses/totals.
 
-Front
+Frontend
 
 API_BASE = http://127.0.0.1:8000.
 
-Chat usa /api/chat/xuzinha.
-
-Se used_tools conter db.update_expense|db.set_category|db.reset → refetch GET /api/expenses/totals e atualiza cards.
+Chat usa POST /api/chat/xuzinha e, se used_tools contém db.update_expense|db.set_category|db.reset, faz refetch de GET /api/expenses/totals e atualiza os cards.
 
 Ollama
 
-Modelo deepseek-r1:7b (mais llama3, phi3 opcionais).
+Modelo principal deepseek-r1:7b.
 
-Cliente forçando format:"json", repeat_penalty:1.2, stop: ["OBS_TOOL","USER:","ASSISTANT:","TOOL:"].
+Cliente com format:"json", repeat_penalty:1.2, stop:["OBS_TOOL","USER:","ASSISTANT:","TOOL:"].
 
 Docs
 
 README alinhado (Web + FastAPI + DeepSeek + porta 8000).
 
-Observação: branch main.
+Anotar que a branch é main (Codex/CI).
 
 3) IMPACT
 
-IA para de ser papagaio e executa pedidos de despesas.
+IA deixa de ser papagaio e executa pedidos.
 
-UI muda na hora após ajustes.
+UI reflete alterações imediatamente.
 
-Onboarding limpa: quem clona sobe em minutos.
+Quem clonar sobe o projeto em minutos.
 
-4) Mapa do repositório (alvo)
+4) Mapa do repo (alvo)
 /backend
   /ai
     /prompts/xuzinha_base.txt
@@ -77,9 +73,9 @@ Onboarding limpa: quem clona sobe em minutos.
   dev_all.bat
   smoke.ps1
 /docs
-  repo_analysis.md         # este arquivo
+  repo_analysis.md
 
-5) Contratos (API)
+5) Contratos de API
 5.1 Chat
 
 POST /api/chat/xuzinha
@@ -92,13 +88,13 @@ Resposta:
 
 5.2 Totais
 
-GET /api/expenses/totals →
+GET /api/expenses/totals
 
 { "source": "api|file", "totals": { "Food": 170.0, "Transport": 45.0 } }
 
 5.3 Health
 
-GET / →
+GET /
 
 { "ok": true, "service": "xuzinha-core", "tools": ["db.get_expenses", "..."] }
 
@@ -111,88 +107,73 @@ ollama pull phi3:mini
 # backend
 cd backend
 pip install -r requirements.txt
-python app.py   # roda na 8000
+python app.py   # porta 8000
 
 # web
 cd web
 npm i
 npm run dev -- --port 3000
 
-7) Check rápido (curl)
+7) Smoke test (curl)
 curl http://127.0.0.1:8000/
-curl -X POST http://127.0.0.1:8000/api/chat/xuzinha ^
-  -H "Content-Type: application/json" ^
-  -d "{\"user_id\":\"smoke\",\"message\":\"listar despesas por categoria\"}"
+curl -X POST http://127.0.0.1:8000/api/chat/xuzinha \
+  -H "Content-Type: application/json" \
+  -d '{"user_id":"smoke","message":"listar despesas por categoria"}'
 
-curl -X POST http://127.0.0.1:8000/api/chat/xuzinha ^
-  -H "Content-Type: application/json" ^
-  -d "{\"user_id\":\"smoke\",\"message\":\"aumente Food em 20\"}"
+curl -X POST http://127.0.0.1:8000/api/chat/xuzinha \
+  -H "Content-Type: application/json" \
+  -d '{"user_id":"smoke","message":"aumente Food em 20"}'
 
 curl http://127.0.0.1:8000/api/expenses/totals
 
 
-Esperado: used_tools=["db.get_expenses"] no primeiro; ["db.update_expense"] no segundo; e totais atualizados.
+Esperado: used_tools=["db.get_expenses"] no 1º; ["db.update_expense"] no 2º; totais atualizados.
 
 8) Riscos & Mitigações
 
-Loop no LLM → anti-loop (máx. 1 repetição) + “finalize agora” + repeat_penalty.
+Loop do LLM → anti-loop + “finalize agora” + repeat_penalty.
 
-Modelo prolixo → prompt curto + format:"json" + clamp (≤ 2 frases/180 chars).
+Prolixidade → prompt curto + format:"json" + clamp.
 
-Front não atualiza → hook de refetch após db.*.
+UI parada → refetch após db.*.
 
-Múltiplas portas → padronizar 8000; remover 5002/8001 do front/scripts.
+Portas conflitantes → padrão 8000; remover :5002/:8001.
 
-Branch inválida → usar main no Codex/CI.
+Branch errada no Codex → usar main.
 
-9) Tarefas para o Codex (ordem única)
-
-Criar/atualizar arquivos do backend listados na seção Mapa com o conteúdo especificado no patch “Codex Task — Xubudget” (já preparado).
-
-Ajustar front: criar web/src/services/agent.ts; integrar no Chat; substituir base URLs para http://127.0.0.1:8000.
-
-Adicionar scripts em /scripts e README.md novo (Web + FastAPI + DeepSeek).
-
-Garantir requirements.txt com langdetect, readability-lxml, bs4, httpx, etc.
-
-Commit:
-
-feat(core): agente anti-loop + db.* + i18n + json estrito
-
-feat(front): service agent + refresh de totais
-
-chore(scripts): dev_all + smoke
-
-docs: README atualizado; docs/repo_analysis.md
-
-10) Critérios de Aceite (objetivos, sem subjetivo)
+9) Critérios de Aceite
 
 A1: “listar despesas por categoria” → resposta ≤ 2 frases, used_tools=["db.get_expenses"].
 
-A2: “aumente Food em 20” → used_tools=["db.update_expense"]; GET /api/expenses/totals retorna Food com +20; UI reflete em até 1s após resposta.
+A2: “aumente Food em 20” → used_tools=["db.update_expense"]; GET /api/expenses/totals reflete +20; UI atualiza.
 
-A3: Mudança de idioma (“Set Transport to 100”) → resposta no mesmo idioma; used_tools=["db.set_category"].
+A3: “Set Transport to 100” → responde no mesmo idioma; used_tools=["db.set_category"].
 
 A4: “zerar tudo” → used_tools=["db.reset"]; totais zerados; UI atualiza.
 
-A5: “inflação no Canadá?” → usa web.search/web.fetch; resposta curta com número atual.
+A5: “inflação no Canadá?” → usa web.search/web.fetch; resposta curta com número.
 
-A6: GET / retorna ok: true e lista de tools.
+A6: GET / retorna ok:true e lista de tools.
 
-A7: Nenhuma chamada repete a mesma ferramenta mais de 1x (anti-loop).
+A7: Nenhuma resposta repete a mesma tool >1x.
 
-A8: Front não tem referências a :5002/:8001.
+10) Notas de limpeza (opcional)
 
-11) Observações finais
+Para recomeçar limpo mantendo a URL:
 
-Se quiser idioma fixo sempre PT-BR, basta setar flag XU_FORCE_LANG=pt no backend (não implementado por padrão).
+rm -rf .git
+git init
+git add .
+git commit -m "init: fresh clean version"
+git branch -M main
+git remote add origin https://github.com/marcobarreto007/Xubudget.git
+git push -u origin -f main
 
-Se o DeepSeek ainda “falar demais”, reduzir max_tokens para 120 e aumentar repeat_penalty para 1.3.
 
-Pronto. Este arquivo é a referência do repo.
-Qualquer divergência, manda o MSAR (DIVERGENCE / PATH_FIX / IMPACT) que a gente realinha de uma vez.
+Pronto. Qualquer desvio, usa o MSAR:
+DIVERGENCE / PATH_FIX / IMPACT e a gente realinha o pipeline todo de uma vez.
 
 Réflexion étendue
 Connecteurs
 Ajouter des sources
-ChatGPT pode fazer des erreurs. Vérifiez les informations importantes. Reportez-vous à la section Préférences de témoins.
+ChatGPT peut faire des erreurs. Vérifiez les informations importantes. Reportez-vous à la section Préférences de témoins.
