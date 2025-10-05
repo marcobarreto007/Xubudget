@@ -1,38 +1,23 @@
 @echo off
-echo ========================================
-echo    XUBUDGET AI - SISTEMA COMPLETO
-echo ========================================
-echo.
+setlocal
+chcp 65001>nul
+set ROOT=%~dp0..\
 
-echo [1/3] Parando processos existentes...
-taskkill /F /IM python.exe 2>nul
-taskkill /F /IM node.exe 2>nul
-echo.
+REM WHY: sobe backend (8000) e web (3000) com 1 clique
+pushd "%ROOT%services\pi2_assistant"
+if not exist ".venv" (py -3 -m venv .venv)
+call .venv\Scripts\activate.bat
+pip install -r requirements.txt --disable-pip-version-check
+start "XUZINHA BACKEND :8000" cmd /c "py app.py"
 
-echo [2/3] Iniciando Backend (FastAPI + Ollama)...
-cd services\pi2_assistant
-start /B python app.py
-timeout /t 3 /nobreak >nul
-echo.
+pushd xuzinha_dashboard
+if exist package.json (
+  call npm i
+  start "XUZINHA WEB :3000" cmd /c "npm run dev -- --port 3000"
+) else (
+  echo [WARN] Front nao encontrado em services\pi2_assistant\xuzinha_dashboard
+)
+popd & popd
 
-echo [3/3] Iniciando Frontend (React)...
-cd ..\xuzinha_dashboard
-start /B npm run dev -- --port 3000
-timeout /t 5 /nobreak >nul
-echo.
-
-echo ========================================
-echo    SISTEMA RODANDO!
-echo ========================================
-echo Backend:  http://127.0.0.1:8000
-echo Frontend: http://localhost:3000
-echo ========================================
-echo.
-echo Pressione qualquer tecla para parar...
-pause >nul
-
-echo.
-echo Parando sistema...
-taskkill /F /IM python.exe 2>nul
-taskkill /F /IM node.exe 2>nul
-echo Sistema parado!
+echo [OK] Backend http://127.0.0.1:8000  |  Web http://127.0.0.1:3000
+endlocal
