@@ -1,6 +1,8 @@
 import os, re, json, yaml, sys
 from typing import Dict, Any, List
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import uvicorn
 
@@ -41,6 +43,9 @@ class ChatIn(BaseModel):  user_id: str; message: str
 class ChatOut(BaseModel): final_answer: str; used_tools: List[str] = []
 
 app = FastAPI(title="Xuzinha Core")
+
+# Servir arquivos estáticos do frontend
+app.mount("/static", StaticFiles(directory="xuzinha_dashboard/build/static"), name="static")
 
 def _json_extract(s: str) -> Dict[str,Any]:
     if BAN_THINK: s = re.sub(r"<think>[\s\S]*?</think>","",s,flags=re.I)
@@ -125,6 +130,27 @@ def chat(inp: ChatIn): return agent(inp.message)
 def totals(): return db_get_expenses({})
 
 @app.get("/")
-def root(): return {"ok":True, "service":"xuzinha-core", "tools":list(TOOLS.keys())}
+def root():
+    return {"ok": True, "service": "xuzinha-core", "tools": list(TOOLS.keys())}
 
-if __name__=="__main__": uvicorn.run(app, host="127.0.0.1", port=8000)
+@app.get("/health")
+def health():
+    return {"ok": True, "service": "xuzinha-core", "tools": list(TOOLS.keys())}
+
+@app.get("/api")
+def api_root(): 
+    return {"ok":True, "service":"xuzinha-core", "tools":list(TOOLS.keys())}
+
+# Servir o frontend React
+@app.get("/dashboard")
+def dashboard():
+    return FileResponse("xuzinha_dashboard/build/index.html")
+
+# Catch-all para SPA routing
+@app.get("/{full_path:path}")
+def serve_spa(full_path: str):
+    if full_path.startswith("api/") or full_path.startswith("static/"):
+        return {"error": "Not found"}
+    return FileResponse("xuzinha_dashboard/build/index.html")
+
+if __name__=="__main__": uvicorn.run(app, host="0.0.0.0", port=8000)

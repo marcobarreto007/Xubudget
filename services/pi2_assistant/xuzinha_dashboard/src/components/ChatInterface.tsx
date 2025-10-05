@@ -214,7 +214,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   }, [messages]);
 
   // Function to clamp text length
-  const clampText = (text: string, maxChars: number = 180): string => {
+  const clampText = (text: string, maxChars: number = 120): string => {
     return text.length > maxChars ? text.slice(0, maxChars).trim() + '…' : text;
   };
 
@@ -260,20 +260,29 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       if (tools.some(t => ['db.update_expense','db.set_category','db.reset'].includes(t))) {
         try {
           const data = await fetchTotals();
-          console.log('Budget refreshed after modification:', data.totals);
-          // Update expenses from totals
-          if (data.totals) {
-            const expenses = Object.entries(data.totals).map(([category, amount]) => ({
-              id: `expense-${category}`,
-              category,
-              amount: Number(amount),
-              description: `Gasto em ${category}`,
-              date: new Date().toISOString()
-            }));
-            onExpensesChange(expenses);
+          console.log('Budget refreshed after modification:', data);
+          
+          // Force UI refresh by calling onCommand with refresh signal
+          onCommand('SYNC:REFRESH_BUDGET');
+          
+          // Update expenses from totals if available
+          if (data && typeof data === 'object') {
+            const totals = data.totals || data;
+            if (totals && typeof totals === 'object') {
+              const expenses = Object.entries(totals).map(([category, amount]) => ({
+                id: `expense-${category}`,
+                category,
+                amount: Number(amount),
+                description: `Gasto em ${category}`,
+                date: new Date().toISOString()
+              }));
+              onExpensesChange(expenses);
+            }
           }
         } catch (error) {
           console.error('Failed to refresh budget:', error);
+          // Force refresh anyway
+          onCommand('SYNC:REFRESH_BUDGET');
         }
       }
 

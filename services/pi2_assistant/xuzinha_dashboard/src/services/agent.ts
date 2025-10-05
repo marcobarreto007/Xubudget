@@ -1,9 +1,9 @@
-export const API_BASE = process.env.REACT_APP_API_BASE || 'http://127.0.0.1:8000';
+export const API_BASE = process.env.REACT_APP_API_BASE || 'http://127.0.0.1:8000/api';
 
 function clamp(t: string, max=180) { return t && t.length>max ? t.slice(0,max).trim()+'…' : (t||''); }
 
 export async function sendToAgent(message: string) {
-  const res = await fetch(`${API_BASE}/api/chat/xuzinha`, {
+  const res = await fetch(`${API_BASE}/chat/xuzinha`, {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({ user_id: 'ui', message })
@@ -14,5 +14,5 @@ export async function sendToAgent(message: string) {
 }
 
 export async function fetchTotals() {
-  return fetch(`${API_BASE}/api/expenses/totals`).then(r=>r.json());
+  return fetch(`${API_BASE}/expenses/totals`).then(r=>r.json());
 }

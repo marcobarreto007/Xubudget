@@ -1,7 +1,7 @@
 model: deepseek-r1:7b
 provider: ollama
-temperature: 0.3
-max_tokens: 160
+temperature: 0.7
+max_tokens: 200
 system_prompt_path: ai/prompts/xuzinha_base.txt
 
 tools:
@@ -31,9 +31,9 @@ tools:
     desc: "Sugerir orçamento equilibrado."
 
 policy:
-  prefer_db_for: ["listar","ver despesas","despesas por categoria","aumente","reduza","alterar","editar","zerar","apagar","apagar tudo","setar","definir"]
+  prefer_db_for: ["listar","ver","despesas","categoria","aumente","reduza","alterar","editar","zerar","apagar","setar","definir","mudar","modificar","7777","todos","números"]
   ban_think_markup: true
   json_only: true
-  max_steps: 3
-  max_same_tool: 1
-  response: { max_sentences: 2, max_chars: 180 }
+  max_steps: 5
+  max_same_tool: 2
+  response: { max_sentences: 2, max_chars: 200 }
