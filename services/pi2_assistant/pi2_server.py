@@ -77,7 +77,7 @@ def _bootstrap_rag_corpus() -> None:
 _bootstrap_rag_corpus()
 
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b-instruct")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "deepseek-r1:7b")
 OLLAMA_TIMEOUT = 10
 
 
@@ -398,7 +398,49 @@ def _ensure_state_schema(state: Dict[str, Any], user_id: str) -> Dict[str, Any]:
         normalized_goals.append(goal)
     state["goals"] = normalized_goals
 
+    # Recalculate totals
+    _recalculate_totals(state, user_id)
+
     return state
+
+
+def _recalculate_totals(state: Dict[str, Any], user_id: str) -> None:
+    """Recalculate all totals and derived fields"""
+    period_key = state.get("period") or _current_period_key()
+    period_start, period_end = _period_start_end(period_key)
+    
+    expenses = [e for e in state.get("history", []) if e.get("type") == "expense"]
+    incomes = [i for i in state.get("history", []) if i.get("type") == "income"] + state.get("incomes", [])
+
+    monthly_expenses: List[Dict[str, Any]] = []
+    for exp in expenses:
+        ts = _parse_timestamp(exp.get("timestamp"))
+        if ts and period_start <= ts < period_end:
+            monthly_expenses.append(exp)
+
+    total_spent = sum(e["amount"] for e in monthly_expenses)
+    state["monthly_spent"] = round(total_spent, 2)
+
+    budgets = state.get("category_budgets", {})
+    if not budgets and CATEGORIES:
+        budgets = {cat["id"]: float(cat.get("budget", 0.0) or 0.0) for cat in CATEGORIES}
+        state["category_budgets"] = budgets
+
+    total_budget = state.get("budget") or sum(budgets.values())
+    state["budget"] = round(total_budget, 2)
+    state["remaining"] = round(total_budget - total_spent, 2)
+
+    spend_by_category: Dict[str, Dict[str, Any]] = defaultdict(lambda: {"spent": 0.0, "transactions": 0})
+    merchants: Counter[str] = Counter()
+    for exp in monthly_expenses:
+        cat_id = exp.get("category") or "other"
+        spend_by_category[cat_id]["spent"] += exp["amount"]
+        spend_by_category[cat_id]["transactions"] += 1
+        merchant = exp.get("merchant") or exp.get("description") or "Unknown"
+        merchants[merchant.strip() or "Unknown"] += 1
+
+    state["_category_totals"] = spend_by_category
+    state["_top_merchants"] = merchants
 
 
 def load_user_state(

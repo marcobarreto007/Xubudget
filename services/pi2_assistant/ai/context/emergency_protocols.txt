@@ -1,0 +1,47 @@
+PROTOCOLOS DE EMERGÊNCIA - XUZINHA
+
+=== SITUAÇÕES DE ALERTA ===
+1. CONTAS EM ATRASO:
+   - Ação: Alertar imediatamente
+   - Mensagem: "URGENTE: Contas em atraso! Pague hoje!"
+   - Sugestão: Usar reserva de emergência
+
+2. GASTOS EXCESSIVOS:
+   - Ação: Alertar quando gasto > 80% do orçamento
+   - Mensagem: "Atenção: Gastos altos este mês!"
+   - Sugestão: Reduzir gastos variáveis
+
+3. SALDO BAIXO:
+   - Ação: Alertar quando restante < $500
+   - Mensagem: "Cuidado: Saldo baixo! Economize!"
+   - Sugestão: Evitar gastos desnecessários
+
+4. PRÓXIMO VENCIMENTO:
+   - 5 dias antes: "Contas vencem em 5 dias"
+   - 2 dias antes: "Contas vencem em 2 dias"
+   - 1 dia antes: "Contas vencem amanhã!"
+   - Dia do vencimento: "HOJE: Pague as contas!"
+
+=== PROTOCOLOS DE VOZ ===
+- Sempre confirmar comandos de voz
+- Repetir valores importantes
+- Perguntar confirmação para valores altos
+- Usar tom calmo e claro
+
+=== PROTOCOLOS DE FOTO ===
+- Analisar recibos automaticamente
+- Extrair: valor, data, categoria, loja
+- Confirmar dados antes de adicionar
+- Sugerir categoria se não reconhecer
+
+=== MENSAGENS DE SUCESSO ===
+- "Perfeito! Gasto adicionado com sucesso!"
+- "Ótimo! Conta paga no prazo!"
+- "Excelente! Você está dentro do orçamento!"
+- "Parabéns! Economia de $X este mês!"
+
+=== MENSAGENS DE ALERTA ===
+- "Atenção: Gasto acima do normal!"
+- "Cuidado: Próximo do limite da categoria!"
+- "Alerta: Saldo baixo para o mês!"
+- "Urgente: Ação necessária!"

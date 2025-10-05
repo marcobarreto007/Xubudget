@@ -1,14 +1,15 @@
 // WHY: Voice service for speech-to-text transcription using speech_to_text package
-import 'package:speech_to_text/speech_to_text.dart' as stt;
+// import 'package:speech_to_text/speech_to_text.dart' as stt;  // Temporariamente desabilitado
 
 class VoiceService {
-  late stt.SpeechToText _speech;
+  // Temporariamente desabilitado devido a incompatibilidade Kotlin
+  // late stt.SpeechToText _speech;
   bool _isInitialized = false;
   bool _isListening = false;
   String _lastWords = '';
 
   VoiceService() {
-    _speech = stt.SpeechToText();
+    // _speech = stt.SpeechToText();
   }
 
   /// Initialize the speech recognition service
@@ -16,11 +17,15 @@ class VoiceService {
     if (_isInitialized) return true;
     
     try {
+      // Temporariamente retorna false
+      return false;
+      /*
       _isInitialized = await _speech.initialize(
         onError: (error) => print('Speech error: $error'),
         onStatus: (status) => print('Speech status: $status'),
       );
       return _isInitialized;
+      */
     } catch (e) {
       print('Error initializing speech: $e');
       return false;
@@ -28,7 +33,7 @@ class VoiceService {
   }
 
   /// Check if speech recognition is available
-  bool get isAvailable => _isInitialized && _speech.isAvailable;
+  bool get isAvailable => false; // _isInitialized && _speech.isAvailable;
 
   /// Check if currently listening
   bool get isListening => _isListening;
@@ -41,6 +46,9 @@ class VoiceService {
     required Function(String) onResult,
     String localeId = 'pt_BR',
   }) async {
+    // Temporariamente desabilitado
+    return false;
+    /*
     if (!_isInitialized) {
       await initialize();
     }
@@ -69,27 +77,37 @@ class VoiceService {
       print('Error starting to listen: $e');
       return false;
     }
+    */
   }
 
   /// Stop listening for speech input
   Future<void> stopListening() async {
+    // Temporariamente desabilitado
+    /*
     if (_isListening) {
       await _speech.stop();
       _isListening = false;
     }
+    */
   }
 
   /// Cancel current listening session
   Future<void> cancelListening() async {
+    // Temporariamente desabilitado
+    /*
     if (_isListening) {
       await _speech.cancel();
       _isListening = false;
       _lastWords = '';
     }
+    */
   }
 
   /// Get available locales for speech recognition
   Future<List<String>> getAvailableLocales() async {
+    // Temporariamente desabilitado
+    return [];
+    /*
     if (!_isInitialized) {
       await initialize();
     }
@@ -105,6 +123,7 @@ class VoiceService {
       print('Error getting locales: $e');
       return [];
     }
+    */
   }
 
   /// Check if a specific locale is supported
@@ -115,9 +134,12 @@ class VoiceService {
 
   /// Clean up resources
   void dispose() {
+    // Temporariamente desabilitado
+    /*
     if (_isListening) {
       _speech.stop();
     }
+    */
     _isInitialized = false;
     _isListening = false;
     _lastWords = '';

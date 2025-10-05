@@ -1,18 +1,27 @@
 // WHY: Expense parser for extracting expense data from text using regex patterns for PT-BR
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'ai_service.dart';
 
 class ParsedExpenseData {
   final String? description;
   final double? amount;
   final DateTime? date;
   final String? category;
+  final String? method; // 'ai' ou 'regex'
+  final double? confidence;
 
-  ParsedExpenseData({this.description, this.amount, this.date, this.category});
+  ParsedExpenseData(
+      {this.description,
+      this.amount,
+      this.date,
+      this.category,
+      this.method,
+      this.confidence});
 }
 
 class ExpenseParser {
-  static const String _aiServiceUrl = 'http://localhost:5000/categorize';
+  // Resolved via AIService per-platform
 
   /// Parse expense data from text using AI service if available, fallback to regex
   Future<ParsedExpenseData> parseWithAI(String text) async {
@@ -25,26 +34,23 @@ class ExpenseParser {
     } catch (e) {
       // Fallback to regex parsing if AI service is not available
     }
-    
+
     return _parseWithRegex(text);
   }
 
   /// Try to categorize using AI service
   Future<ParsedExpenseData?> _tryAICategorization(String text) async {
     try {
-      final response = await http.post(
-        Uri.parse(_aiServiceUrl),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'text': text}),
-      ).timeout(const Duration(seconds: 5));
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
+      final response = await AIService.instance.categorize(text);
+      if (response != null) {
         return ParsedExpenseData(
-          description: data['description'],
-          amount: data['amount']?.toDouble(),
-          date: data['date'] != null ? DateTime.tryParse(data['date']) : null,
-          category: data['category'],
+          description: response.description,
+          amount: response.amount,
+          date:
+              response.date != null ? DateTime.tryParse(response.date!) : null,
+          category: response.category,
+          method: response.method,
+          confidence: response.confidence,
         );
       }
     } catch (e) {
@@ -56,24 +62,26 @@ class ExpenseParser {
   /// Parse expense data using regex patterns for Portuguese text
   ParsedExpenseData _parseWithRegex(String text) {
     final cleanText = text.toLowerCase().trim();
-    
+
     // Extract amount using various patterns for Brazilian currency
     double? amount = _extractAmount(cleanText);
-    
+
     // Extract date
     DateTime? date = _extractDate(cleanText);
-    
+
     // Extract description (simplified - use first meaningful line)
     String? description = _extractDescription(text);
-    
+
     // Determine category based on keywords
     String? category = _categorizeByKeywords(cleanText);
-    
+
     return ParsedExpenseData(
       description: description,
       amount: amount,
       date: date,
       category: category,
+      method: 'regex',
+      confidence: null,
     );
   }
 
@@ -111,12 +119,12 @@ class ExpenseParser {
         final day = int.tryParse(match.group(1) ?? '') ?? 1;
         final month = int.tryParse(match.group(2) ?? '') ?? 1;
         var year = int.tryParse(match.group(3) ?? '') ?? DateTime.now().year;
-        
+
         // Convert 2-digit year to 4-digit
         if (year < 100) {
           year += (year < 50) ? 2000 : 1900;
         }
-        
+
         try {
           return DateTime(year, month, day);
         } catch (e) {
@@ -128,30 +136,89 @@ class ExpenseParser {
   }
 
   String? _extractDescription(String text) {
-    final lines = text.split('\n').map((line) => line.trim()).where((line) => line.isNotEmpty).toList();
-    
+    final lines = text
+        .split('\n')
+        .map((line) => line.trim())
+        .where((line) => line.isNotEmpty)
+        .toList();
+
     for (final line in lines) {
       // Skip lines that are just numbers or currency
       if (RegExp(r'^[\d\s\.,R\$]*$').hasMatch(line)) continue;
-      
+
       // Skip very short lines
       if (line.length < 3) continue;
-      
+
       // Return first meaningful line
       return line;
     }
-    
+
     return lines.isNotEmpty ? lines.first : null;
   }
 
   String? _categorizeByKeywords(String text) {
     final categories = {
-      'alimentacao': ['market', 'mercado', 'super', 'padaria', 'restaurante', 'lanche', 'comida', 'food', 'cafe', 'pizza'],
-      'transporte': ['uber', 'taxi', 'posto', 'combustivel', 'gasolina', 'onibus', 'metro', 'gas', 'fuel'],
-      'saude': ['farmacia', 'hospital', 'medico', 'clinica', 'consulta', 'exame', 'medicina', 'pharmacy'],
-      'moradia': ['casa', 'aluguel', 'condominio', 'luz', 'agua', 'gas', 'internet', 'telefone'],
-      'lazer': ['cinema', 'teatro', 'bar', 'festa', 'viagem', 'hotel', 'entretenimento', 'jogo'],
-      'educacao': ['escola', 'universidade', 'curso', 'livro', 'material', 'estudo'],
+      'alimentacao': [
+        'market',
+        'mercado',
+        'super',
+        'padaria',
+        'restaurante',
+        'lanche',
+        'comida',
+        'food',
+        'cafe',
+        'pizza'
+      ],
+      'transporte': [
+        'uber',
+        'taxi',
+        'posto',
+        'combustivel',
+        'gasolina',
+        'onibus',
+        'metro',
+        'gas',
+        'fuel'
+      ],
+      'saude': [
+        'farmacia',
+        'hospital',
+        'medico',
+        'clinica',
+        'consulta',
+        'exame',
+        'medicina',
+        'pharmacy'
+      ],
+      'moradia': [
+        'casa',
+        'aluguel',
+        'condominio',
+        'luz',
+        'agua',
+        'gas',
+        'internet',
+        'telefone'
+      ],
+      'lazer': [
+        'cinema',
+        'teatro',
+        'bar',
+        'festa',
+        'viagem',
+        'hotel',
+        'entretenimento',
+        'jogo'
+      ],
+      'educacao': [
+        'escola',
+        'universidade',
+        'curso',
+        'livro',
+        'material',
+        'estudo'
+      ],
     };
 
     for (final entry in categories.entries) {
@@ -161,7 +228,7 @@ class ExpenseParser {
         }
       }
     }
-    
+
     return 'outros'; // Default category
   }
 }

@@ -269,7 +269,7 @@ flutter run -d web-server --web-port 8080
 cd services/pi2_assistant
 
 # Start the FastAPI server
-python -m uvicorn pi2_server:app --host 0.0.0.0 --port 5001 --reload
+python -m uvicorn pi2_server:app --host 0.0.0.0 --port 5005 --reload
 
 # Alternative using Python directly
 python pi2_server.py
@@ -278,10 +278,10 @@ python pi2_server.py
 ##### Health Check
 ```bash
 # Verify backend is running
-curl http://localhost:5001/healthz
+curl http://localhost:5005/healthz
 
 # Test categorization
-curl -X POST http://localhost:5001/categorize \
+curl -X POST http://localhost:5005/categorize \
   -H "Content-Type: application/json" \
   -d '{"text": "Almocei no restaurante por R$ 25,50"}'
 ```
@@ -478,7 +478,7 @@ cd services/pi2_assistant
 docker build -t xubudget-backend .
 
 # Run container
-docker run -p 5001:5001 xubudget-backend
+docker run -p 5005:5005 xubudget-backend
 
 # Deploy with Docker Compose
 docker-compose up -d
@@ -675,7 +675,7 @@ class AppLocalizations {
 
 #### Base URL
 ```
-http://localhost:5001
+http://localhost:5005
 ```
 
 #### Authentication
@@ -1405,7 +1405,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 #### 📚 Documentation
 - **README**: This comprehensive guide
-- **API Docs**: Available at `http://localhost:5001/docs` when backend is running
+- **API Docs**: Available at `http://localhost:5005/docs` when backend is running
 - **Code Comments**: Inline documentation in source code
 
 #### 💬 Community Support

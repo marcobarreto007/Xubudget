@@ -14,36 +14,57 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <noscript>Este app requer JavaScript habilitado.</noscript>
   <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
+    const serviceWorkerVersion = '{{flutter_service_worker_version}}';
+    // Em modo debug (localhost), evite registrar SW para não conflitar com o dev server
+    if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
+      window.addEventListener('load', function() {
+        try {
+          navigator.serviceWorker.register('flutter_service_worker.js?v=' + serviceWorkerVersion);
+        } catch (e) {
+          console.warn('Falha ao registrar service worker:', e);
+        }
+      });
+    }
+  </script>
+  <script src="flutter.js" defer></script>
+  <script>
+    // Mostra erros JS/Dart na própria página para facilitar debug quando fica em branco
+    window.addEventListener('error', function(e) {
+      const pre = document.createElement('pre');
+      pre.style.position = 'fixed';
+      pre.style.bottom = '0';
+      pre.style.left = '0';
+      pre.style.right = '0';
+      pre.style.maxHeight = '40vh';
+      pre.style.overflow = 'auto';
+      pre.style.background = 'rgba(0,0,0,0.85)';
+      pre.style.color = '#f55';
+      pre.style.margin = '0';
+      pre.style.padding = '8px';
+      pre.style.font = '12px/1.4 monospace';
+      pre.textContent = 'Erro: ' + (e.message || e.error || 'desconhecido');
+      document.body.appendChild(pre);
+    });
+
+    window.addEventListener('load', function() {
+      const legacyCtor = window.FlutterLoader ? new window.FlutterLoader() : null;
+      const loader = (window._flutter && window._flutter.loader) ? window._flutter.loader : legacyCtor;
+      if (!loader) {
+        console.error('Flutter loader não encontrado');
         return;
       }
-      scriptLoaded = true;
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
-    }
-
-    if ('serviceWorker' in navigator) {
-      serviceWorkerVersion = '{{ flutter_service_worker_version }}';
-      navigator.serviceWorker.register('flutter_service_worker.js?v=' + serviceWorkerVersion);
-    }
-    window.addEventListener('load', function(ev) {
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
+      loader.loadEntrypoint({
+        serviceWorker: { serviceWorkerVersion: serviceWorkerVersion },
       }).then(function(engineInitializer) {
         return engineInitializer.initializeEngine();
       }).then(function(appRunner) {
         return appRunner.runApp();
+      }).catch(function(err){
+        console.error('Falha ao iniciar Flutter:', err);
       });
     });
   </script>
-  <script src="flutter.js" defer></script>
 </body>
 </html>

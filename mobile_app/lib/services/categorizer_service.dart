@@ -1,5 +1,7 @@
 // WHY: HTTP client service for communicating with AI categorization backend
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:io' show Platform;
 import 'package:http/http.dart' as http;
 
 class CategorizerRequest {
@@ -40,7 +42,17 @@ class CategorizerResponse {
 }
 
 class CategorizerService {
-  static const String _baseUrl = 'http://localhost:5001';
+  // On Android emulator, host machine is 10.0.2.2; on Web/Desktop use localhost
+  static String get _baseUrl {
+    const override = String.fromEnvironment('AI_BASE_URL');
+    if (override.isNotEmpty) return override;
+    if (kIsWeb) return 'http://127.0.0.1:5001';
+    try {
+      if (Platform.isAndroid) return 'http://10.0.2.2:5001';
+    } catch (_) {}
+    return 'http://127.0.0.1:5001';
+  }
+
   static const Duration _timeout = Duration(seconds: 5);
 
   /// Check if the AI categorization service is available
@@ -50,7 +62,7 @@ class CategorizerService {
         Uri.parse('$_baseUrl/healthz'),
         headers: {'Content-Type': 'application/json'},
       ).timeout(_timeout);
-      
+
       return response.statusCode == 200;
     } catch (e) {
       return false;
@@ -61,12 +73,14 @@ class CategorizerService {
   Future<CategorizerResponse?> categorizeExpense(String text) async {
     try {
       final request = CategorizerRequest(text: text);
-      
-      final response = await http.post(
-        Uri.parse('$_baseUrl/categorize'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode(request.toJson()),
-      ).timeout(_timeout);
+
+      final response = await http
+          .post(
+            Uri.parse('$_baseUrl/categorize'),
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode(request.toJson()),
+          )
+          .timeout(_timeout);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -75,7 +89,7 @@ class CategorizerService {
     } catch (e) {
       // Service not available, caller should use fallback
     }
-    
+
     return null;
   }
 
@@ -93,7 +107,7 @@ class CategorizerService {
     } catch (e) {
       // Service not available
     }
-    
+
     return null;
   }
 }

@@ -1,33 +1,30 @@
 {
   "user_id": "default",
+  "currency": "CAD",
   "budget": 4000.0,
-  "monthly_spent": 1931.0,
-  "remaining": 2069.0,
-  "history": [
-    {
-      "type": "expense",
-      "amount": 100.0,
-      "description": "tim hortons",
-      "timestamp": "2025-09-22T03:12:59.228515"
-    },
-    {
-      "type": "expense",
-      "amount": 50.0,
-      "description": "cassino",
-      "timestamp": "2025-09-22T03:15:01.212645"
-    },
-    {
-      "type": "expense",
-      "amount": 1756.0,
-      "description": "new TV",
-      "timestamp": "2025-09-23T01:26:03.214233"
-    },
-    {
-      "type": "expense",
-      "amount": 25.0,
-      "description": "gaming with friend",
-      "timestamp": "2025-09-23T01:27:30.544123"
-    }
-  ],
-  "category_budgets": {}
+  "monthly_spent": 0.0,
+  "remaining": 4000.0,
+  "history": [],
+  "incomes": [],
+  "goals": [],
+  "category_budgets": {
+    "groceries": 400.0,
+    "food_dining": 440.0,
+    "fuel": 300.0,
+    "transport": 200.0,
+    "health": 150.0,
+    "entertainment": 200.0,
+    "utilities": 100.0,
+    "shopping": 300.0,
+    "other": 100.0
+  },
+  "settings": {
+    "budget_mode": "standard"
+  },
+  "icons": [],
+  "active_icons": [],
+  "merchant_rules": {},
+  "subcategory_budgets": {},
+  "_category_totals": {},
+  "_top_merchants": {}
 }

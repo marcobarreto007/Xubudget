@@ -1,6 +1,7 @@
 // WHY: Main scaffold providing navigation structure for the app
 import 'package:flutter/material.dart';
 import 'budget_dashboard_page.dart';
+import 'ai_chat_page.dart';
 
 class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
@@ -13,9 +14,9 @@ class _MainScaffoldState extends State<MainScaffold> {
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = <Widget>[
+    AIChatPage(),
     BudgetDashboardPage(),
     Placeholder(), // Settings page placeholder
-    Placeholder(), // Statistics page placeholder
   ];
 
   void _onItemTapped(int index) {
@@ -31,16 +32,16 @@ class _MainScaffoldState extends State<MainScaffold> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(Icons.chat_bubble_outline),
+            label: 'Assistente',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard_outlined),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.analytics),
-            label: 'Statistics',
+            icon: Icon(Icons.settings_outlined),
+            label: 'Configurações',
           ),
         ],
         currentIndex: _selectedIndex,

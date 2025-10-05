@@ -1,0 +1,39 @@
+model: deepseek-r1:7b
+provider: ollama
+temperature: 0.3
+max_tokens: 160
+system_prompt_path: ai/prompts/xuzinha_base.txt
+
+tools:
+  - name: db.get_expenses
+    args: {}
+    desc: "Ler despesas atuais por categoria."
+  - name: db.update_expense
+    args: { category: "str", delta: "float" }
+    desc: "Somar delta ao total da categoria."
+  - name: db.set_category
+    args: { category: "str", total: "float" }
+    desc: "Definir total exato da categoria."
+  - name: db.reset
+    args: {}
+    desc: "Zerar todas as categorias."
+  - name: web.search
+    args: { query: "str", max_results: "int" }
+    desc: "Buscar fatos atuais."
+  - name: web.fetch
+    args: { url: "str", max_chars: "int" }
+    desc: "Extrair texto legível."
+  - name: rag.search
+    args: { query: "str", k: "int" }
+    desc: "Consultar base local."
+  - name: budget.optimize
+    args: { renda_mensal: "float", categorias: "dict", metas: "dict" }
+    desc: "Sugerir orçamento equilibrado."
+
+policy:
+  prefer_db_for: ["listar","ver despesas","despesas por categoria","aumente","reduza","alterar","editar","zerar","apagar","apagar tudo","setar","definir"]
+  ban_think_markup: true
+  json_only: true
+  max_steps: 3
+  max_same_tool: 1
+  response: { max_sentences: 2, max_chars: 180 }

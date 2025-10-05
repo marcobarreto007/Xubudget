@@ -1,8 +1,20 @@
-# WHY: Python dependencies for FastAPI backend with Ollama integration
-fastapi==0.104.1
-uvicorn==0.24.0
-requests==2.31.0
-pydantic==2.5.0
-python-dotenv==1.0.0
-ollama==0.2.0
-python-multipart>=0.0.9
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+httpx==0.27.2
+pydantic==2.9.2
+pyyaml==6.0.2
+python-dotenv==1.0.1
+
+# RAG
+chromadb==0.5.5
+sentence-transformers==3.1.1
+
+# Web tools (internet on)
+ddgs==9.6.0            # DuckDuckGo search API (novo nome)
+readability-lxml==0.8.1
+beautifulsoup4==4.12.3
+tqdm==4.66.5
+
+# util
+pandas==2.2.2
+numpy==2.1.1

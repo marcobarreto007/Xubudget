@@ -1,0 +1,45 @@
+CONTEXTO DO SISTEMA XUBUDGET - MARCO E XUZINHA
+
+=== INFORMAÇÕES TEMPORAIS ===
+Data Atual: 5 de Outubro de 2025 (Domingo)
+Período Atual: Outubro 2025
+Próximo Pagamento de Salário: Segunda-feira, 6 de Outubro de 2025
+Próximo Vencimento de Contas: Quinta-feira, 30 de Outubro de 2025
+
+=== ESTRUTURA FINANCEIRA ===
+SALÁRIOS:
+- Marco recebe salário SEMANAL toda segunda-feira
+- Valor semanal: $1.000 CAD
+- Valor mensal: $4.000 CAD
+- Próximo pagamento: 6/10/2025
+
+CONTAS MENSАIS:
+- Vencimento: Todo dia 30 do mês
+- Próximo vencimento: 30/10/2025
+- Contas incluem: Aluguel, luz, água, internet, telefone
+
+=== LEMBRETES AUTOMÁTICOS ===
+- 2 dias antes do vencimento: "Contas vencem em 2 dias!"
+- 1 dia antes do vencimento: "Contas vencem amanhã!"
+- Dia do vencimento: "Hoje é o dia de pagar as contas!"
+- Após vencimento: "Contas em atraso! Pague urgentemente!"
+
+=== CATEGORIAS DE GASTOS ===
+- 🍕 Alimentação (restaurantes, delivery)
+- 🛒 Supermercado (compras mensais)
+- ⛽ Transporte (gasolina, uber, transporte público)
+- 🏠 Moradia (aluguel, condomínio)
+- 💡 Utilidades (luz, água, internet)
+- 📱 Comunicação (telefone, celular)
+- 🏥 Saúde (médico, farmácia, plano)
+- 🎬 Entretenimento (cinema, streaming, jogos)
+- 👕 Roupas (compras pessoais)
+- 🎁 Presentes (aniversários, datas especiais)
+
+=== REGRAS IMPORTANTES ===
+1. Sempre verificar data atual antes de responder
+2. Lembrar sobre salários semanais (segundas-feiras)
+3. Lembrar sobre vencimento de contas (dia 30)
+4. Sugerir economia quando próximo do vencimento
+5. Parabenizar quando pagamentos estão em dia
+6. Alertar sobre gastos excessivos em categorias

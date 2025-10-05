@@ -29,29 +29,37 @@ if %errorlevel% neq 0 (
 echo.
 cd /d "%~dp0"
 
-echo [START] Backend (porta 5003)...
-cd services\xubudget_api
-start "Xubudget Backend" cmd /k "python main.py"
+echo [START] Backend (porta 5002)...
+cd services\pi2_assistant
+start "Xubudget Backend" cmd /k "python pi2_server.py"
 timeout /t 5 /nobreak >nul
 
-echo [START] Frontend (porta 3000)...
-cd ..\xubudget-web
+echo [START] Xuzinha Dashboard...
+cd ..\..\xuzinha_dashboard
 if not exist "node_modules" (
-  echo [SETUP] Instalando dependencias npm...
+  echo [SETUP] Instalando dependencias React...
   call npm install
 )
-set "REACT_APP_API_URL=http://127.0.0.1:5003/api"
-start "Xubudget Frontend" cmd /k "npm start"
+start "Xuzinha Dashboard" cmd /k "npm start"
 
 timeout /t 5 /nobreak >nul
-start http://localhost:3000
 
 echo.
 echo ========================================
-echo   XUBUDGET RODANDO
-echo   Backend:  http://127.0.0.1:5003
+echo   XUZINHA FINANCE AI RODANDO!
+echo   Backend:  http://127.0.0.1:5002
 echo   Frontend: http://localhost:3000
 echo ========================================
+echo.
+echo [FEATURES]
+echo - Receipt Capture com OCR
+echo - Chat com Xuzinha IA
+echo - Dashboard Financeiro
+echo - Metas e Orçamentos
+echo - Analytics Avançados
+echo.
+echo [INFO] O navegador abrira automaticamente
+echo [INFO] Xuzinha esta esperando por você! 💜
 echo.
 pause
 endlocal

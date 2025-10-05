@@ -1,4 +1,5 @@
 // WHY: Barcode scanner page for scanning product barcodes
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
@@ -15,6 +16,17 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Scan Barcode')),
+        body: const Center(
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: Text('Leitor de código de barras indisponível na Web. Use Android.'),
+          ),
+        ),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Scan Barcode'),

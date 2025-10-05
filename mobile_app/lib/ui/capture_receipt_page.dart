@@ -1,6 +1,7 @@
 // WHY: OCR receipt capture page with image picker, text recognition, and expense parsing
 // Integrates with OCR service and expense parser to pre-fill expense data
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'dart:io';
 import '../services/ocr_service.dart';
 import '../services/expense_parser.dart';
+import '../models/category_model.dart';
 import '../models/expense.dart';
 import '../providers/expense_provider.dart';
 
@@ -22,48 +24,75 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
   final _formKey = GlobalKey<FormState>();
   final _descriptionController = TextEditingController();
   final _amountController = TextEditingController();
-  final _ocrService = OCRService();
+  OCRService?
+      _ocrService; // Não inicializar no Web para evitar MissingPluginException
   final _expenseParser = ExpenseParser();
-  
+
   File? _selectedImage;
   bool _isProcessing = false;
   DateTime _selectedDate = DateTime.now();
   String _selectedCategory = 'outros';
 
   @override
+  void initState() {
+    super.initState();
+    if (!kIsWeb) {
+      _ocrService = OCRService();
+    }
+  }
+
+  @override
   void dispose() {
     _descriptionController.dispose();
     _amountController.dispose();
-    _ocrService.dispose();
+    _ocrService?.dispose();
     super.dispose();
   }
 
   Future<void> _pickImage() async {
+    if (kIsWeb) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Captura de recibo não disponível na Web.')),
+        );
+      }
+      return;
+    }
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(
       source: ImageSource.camera,
       imageQuality: 80,
     );
-    
+
     if (pickedFile != null) {
       setState(() {
         _selectedImage = File(pickedFile.path);
         _isProcessing = true;
       });
-      
+
       await _processImage();
     }
   }
 
   Future<void> _processImage() async {
     if (_selectedImage == null) return;
-    
+    if (_ocrService == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('OCR não disponível na Web.')),
+        );
+      }
+      return;
+    }
+
     try {
-      final extractedText = await _ocrService.extractTextFromImage(_selectedImage!);
+      final extractedText =
+          await _ocrService!.extractTextFromImage(_selectedImage!);
       if (extractedText != null && extractedText.isNotEmpty) {
         // Use AI categorization if available
         final parsedData = await _expenseParser.parseWithAI(extractedText);
-        
+
         setState(() {
           if (parsedData.description != null) {
             _descriptionController.text = parsedData.description!;
@@ -79,10 +108,11 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
           }
           _isProcessing = false;
         });
-        
+
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Texto extraído e categorizado com sucesso!')),
+            const SnackBar(
+                content: Text('Texto extraído e categorizado com sucesso!')),
           );
         }
       } else {
@@ -91,7 +121,8 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
         });
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Não foi possível extrair texto da imagem.')),
+            const SnackBar(
+                content: Text('Não foi possível extrair texto da imagem.')),
           );
         }
       }
@@ -132,7 +163,8 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
         createdAt: DateTime.now(),
       );
 
-      await Provider.of<ExpenseProvider>(context, listen: false).addExpense(newExpense);
+      await Provider.of<ExpenseProvider>(context, listen: false)
+          .addExpense(newExpense);
       if (mounted) {
         Navigator.pop(context);
       }
@@ -179,7 +211,8 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.camera_alt, size: 48, color: Colors.grey),
+                                Icon(Icons.camera_alt,
+                                    size: 48, color: Colors.grey),
                                 SizedBox(height: 8),
                                 Text('Nenhuma imagem selecionada'),
                               ],
@@ -189,21 +222,24 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
                       const SizedBox(height: 16),
                       ElevatedButton.icon(
                         onPressed: _isProcessing ? null : _pickImage,
-                        icon: _isProcessing 
-                          ? const SizedBox(
-                              width: 16,
-                              height: 16,
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            )
-                          : const Icon(Icons.camera_alt),
-                        label: Text(_isProcessing ? 'Processando...' : 'Capturar Imagem'),
+                        icon: _isProcessing
+                            ? const SizedBox(
+                                width: 16,
+                                height: 16,
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2),
+                              )
+                            : const Icon(Icons.camera_alt),
+                        label: Text(_isProcessing
+                            ? 'Processando...'
+                            : 'Capturar Imagem'),
                       ),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 16),
-              
+
               // Form fields
               TextFormField(
                 controller: _descriptionController,
@@ -238,7 +274,8 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
               ),
               const SizedBox(height: 16),
               ListTile(
-                title: Text('Data: ${DateFormat('dd/MM/yyyy').format(_selectedDate)}'),
+                title: Text(
+                    'Data: ${DateFormat('dd/MM/yyyy').format(_selectedDate)}'),
                 trailing: const Icon(Icons.calendar_today),
                 onTap: () => _selectDate(context),
                 shape: RoundedRectangleBorder(
@@ -253,15 +290,12 @@ class _CaptureReceiptPageState extends State<CaptureReceiptPage> {
                   labelText: 'Categoria',
                   border: OutlineInputBorder(),
                 ),
-                items: const [
-                  DropdownMenuItem(value: 'alimentacao', child: Text('Alimentação')),
-                  DropdownMenuItem(value: 'transporte', child: Text('Transporte')),
-                  DropdownMenuItem(value: 'saude', child: Text('Saúde')),
-                  DropdownMenuItem(value: 'moradia', child: Text('Moradia')),
-                  DropdownMenuItem(value: 'lazer', child: Text('Lazer')),
-                  DropdownMenuItem(value: 'educacao', child: Text('Educação')),
-                  DropdownMenuItem(value: 'outros', child: Text('Outros')),
-                ],
+                items: appCategories.map((category) {
+                  return DropdownMenuItem<String>(
+                    value: category.id,
+                    child: Text(category.displayName),
+                  );
+                }).toList(),
                 onChanged: (String? newValue) {
                   setState(() {
                     _selectedCategory = newValue!;
